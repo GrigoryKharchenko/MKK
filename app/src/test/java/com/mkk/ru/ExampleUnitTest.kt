@@ -1,4 +1,4 @@
-package com.example.mkk
+package com.mkk.ru
 
 import org.junit.Test
 
