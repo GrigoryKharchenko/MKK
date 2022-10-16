@@ -3,6 +3,7 @@ package com.mkk.ru.presentation.main
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.mkk.ru.R
+import com.mkk.ru.presentation.screen.SplashScreenFragment
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -19,5 +20,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), HasAndroidInject
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
+        if (savedInstanceState == null)
+            supportFragmentManager
+                .beginTransaction()
+                .add(R.id.container, SplashScreenFragment.newInstance())
+                .commit()
     }
 }

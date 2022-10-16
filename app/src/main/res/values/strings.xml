@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MKK</string>
+
+    <!--SplashScreenFragment-->
+    <string name="splash_screen_fragment_title">Мобильные Кассы\nКыргызстана</string>
+    <string name="splash_screen_fragment_app_version">Версия %s</string>
+
 </resources>
