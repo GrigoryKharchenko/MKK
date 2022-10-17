@@ -39,4 +39,5 @@ abstract class BaseFragment<VM : ViewModel> : Fragment(), HasAndroidInjector {
     private fun getViewModelClass() =
         (javaClass.genericSuperclass as ParameterizedType)
             .actualTypeArguments[0] as Class<VM>
+
 }

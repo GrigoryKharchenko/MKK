@@ -12,11 +12,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MKK"
         tools:targetApi="31">
         <activity
             android:name="com.mkk.ru.presentation.main.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.MKK.Launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

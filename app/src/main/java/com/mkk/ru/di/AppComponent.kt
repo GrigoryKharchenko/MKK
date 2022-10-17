@@ -3,6 +3,8 @@ package com.mkk.ru.di
 import android.content.Context
 import com.mkk.ru.MkkApp
 import com.mkk.ru.di.module.ActivityModule
+import com.mkk.ru.di.module.FragmentModule
+import com.mkk.ru.di.module.ViewModelModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -16,6 +18,8 @@ import javax.inject.Singleton
         AndroidSupportInjectionModule::class,
         AndroidInjectionModule::class,
         ActivityModule::class,
+        FragmentModule::class,
+        ViewModelModule::class
     ]
 )
 interface AppComponent : AndroidInjector<MkkApp> {
