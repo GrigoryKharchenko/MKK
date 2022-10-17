@@ -1,4 +1,4 @@
-package com.mkk.ru.di.module
+package com.mkk.ru.di
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

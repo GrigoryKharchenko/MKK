@@ -1,6 +1,7 @@
 package com.mkk.ru.di.module
 
 import androidx.lifecycle.ViewModel
+import com.mkk.ru.di.ViewModelKey
 import com.mkk.ru.presentation.screen.SplashScreenViewModel
 import dagger.Binds
 import dagger.Module
