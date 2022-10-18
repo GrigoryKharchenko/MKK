@@ -5,4 +5,22 @@
     <string name="splash_screen_fragment_title">Мобильные Кассы\nКыргызстана</string>
     <string name="splash_screen_fragment_app_version">Версия %s</string>
 
+    <!--RegistrationCashBoxFragment-->
+    <string name="registration_cash_box_title">Регистрации кассы</string>
+    <string name="registration_cash_box_name_subject">Наименовние субъекта</string>
+    <string name="registration_cash_box_inn">ИНН субъекта</string>
+    <string name="registration_cash_box_address_subject">Юридический адрес субъекта</string>
+    <string name="registration_cash_box_dislocation_tax">Место налоговой регистрации</string>
+    <string name="registration_cash_box_tax_mode">Налоговоый режим, применяемый субъектом</string>
+    <string name="registration_cash_box_type_action">Вид деятельности субъекта</string>
+    <string name="registration_cash_box_use_cash_box">ГДЕ БУДЕТ ИСПОЛЬЗОВАТЬСЯ МОБИЛЬНАЯ КАССА:</string>
+    <string name="registration_cash_box_send_request">Отправить заявку на регистрацию</string>
+    <string name="registration_cash_box_name_object">Наименование объекта</string>
+    <string name="registration_cash_box_type_object">Вид объекта</string>
+    <string name="registration_cash_box_address_object">Адрес места располжения объекта</string>
+    <string name="registration_cash_box_information_cash_box">ИНФОРМАЦИЯ О КАССЕ:</string>
+    <string name="registration_cash_box_model_KKM">Модель ККМ</string>
+    <string name="registration_cash_box_fiks_registrator">Фискальный регистратр №</string>
+    <string name="registration_cash_box_contact_number">Контактный номер телефона субъкта</string>
+    <string name="registration_cash_box_helper_contact_number">Введите коректный номер</string>
 </resources>

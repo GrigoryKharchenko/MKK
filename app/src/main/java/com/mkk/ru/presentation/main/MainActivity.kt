@@ -3,7 +3,7 @@ package com.mkk.ru.presentation.main
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.mkk.ru.R
-import com.mkk.ru.presentation.screen.SplashScreenFragment
+import com.mkk.ru.presentation.screen.splashscreen.SplashScreenFragment
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
