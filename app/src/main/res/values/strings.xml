@@ -23,4 +23,5 @@
     <string name="registration_cash_box_fiks_registrator">Фискальный регистратр №</string>
     <string name="registration_cash_box_contact_number">Контактный номер телефона субъкта</string>
     <string name="registration_cash_box_helper_contact_number">Введите коректный номер</string>
+    <string name="registration_cash_box_code_region">+7</string>
 </resources>
