@@ -9,5 +9,4 @@ class MkkApp : DaggerApplication() {
         DaggerAppComponent.builder()
             .context(this)
             .build()
-
 }

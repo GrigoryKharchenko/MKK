@@ -127,6 +127,7 @@
                     android:id="@+id/tvTaxMode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:dropDownVerticalOffset="@dimen/dp_4"
                     android:inputType="none"
                     tools:ignore="LabelFor" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -168,7 +169,8 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/registration_cash_box_contact_number"
                     android:inputType="phone"
-                    android:maxLength="10"
+                    android:text="@string/registration_cash_box_code_region"
+                    android:maxLength="12"
                     android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
