@@ -33,12 +33,12 @@ class SplashScreenFragment : BaseFragment<SplashScreenViewModel>() {
         super.onViewCreated(view, savedInstanceState)
         binding.tvVersion.text =
             getString(R.string.splash_screen_fragment_app_version, BuildConfig.VERSION_NAME)
-        viewModel.fragmentFlow.onEach {
-            openFragment()
+        viewModel.openRegistrationCashBoxFragmentFlow.onEach {
+            openRegistrationCashBoxFragment()
         }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
     }
 
-    private fun openFragment() {
+    private fun openRegistrationCashBoxFragment() {
         parentFragmentManager.commit {
             setReorderingAllowed(true)
             add<RegistrationCashBoxFragment>(R.id.container)

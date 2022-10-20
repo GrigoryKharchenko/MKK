@@ -1,7 +1,7 @@
 package com.mkk.ru.data
 
-import com.mkk.ru.domain.SubdivisionsRepository
-import com.mkk.ru.presentation.screen.model.SubdivisionModel
+import com.mkk.ru.domain.repository.SubdivisionsRepository
+import com.mkk.ru.domain.model.SubdivisionModel
 import javax.inject.Inject
 
 class SubdivisionRepositoryImpl @Inject constructor() : SubdivisionsRepository {

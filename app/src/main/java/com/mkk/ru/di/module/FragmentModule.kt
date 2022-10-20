@@ -1,6 +1,7 @@
 package com.mkk.ru.di.module
 
 import com.mkk.ru.presentation.screen.registrationcashbox.RegistrationCashBoxFragment
+import com.mkk.ru.presentation.screen.requestacceptance.RequestAcceptanceFragment
 import com.mkk.ru.presentation.screen.splashscreen.SplashScreenFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -13,4 +14,7 @@ interface FragmentModule {
 
     @ContributesAndroidInjector
     fun bindRegistrationCashBoxFragment(): RegistrationCashBoxFragment
+
+    @ContributesAndroidInjector
+    fun bindRequestAcceptanceFragment(): RequestAcceptanceFragment
 }
