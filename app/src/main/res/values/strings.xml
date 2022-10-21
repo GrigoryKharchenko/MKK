@@ -36,6 +36,7 @@
     <string name="error_name_object">Укажите наименование объекта</string>
     <string name="error_address_object">Укажите адресс объекта</string>
     <string name="error_type_action">Укажите вид деятельности субъекта</string>
+    <string name="error_request">Произошла ошибка</string>
 
     <!-- TaxMode -->
     <string name="tax_mode_special">Специальный налоговоый режим</string>

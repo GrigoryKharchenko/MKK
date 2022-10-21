@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.core.view.isVisible
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import androidx.lifecycle.lifecycleScope
@@ -58,6 +59,9 @@ class RegistrationCashBoxFragment : BaseFragment<RegistrationCashBoxViewModel>()
             }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
             subdivisionsFlow.onEach {
                 setSubdivision(it)
+            }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
+            statusProgressBarFlow.onEach {
+                binding.flProgress.isVisible = it
             }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
         }
         setTaxMode()

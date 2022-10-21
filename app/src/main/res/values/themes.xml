@@ -78,4 +78,10 @@
     <style name="OutlinedButton.TealBasic.WhiteText.14.Corners8">
         <item name="cornerRadius">8sp</item>
     </style>
+
+    <style name="ProgressBarStyle">
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:background">@color/gray_alfa_30</item>
+    </style>
 </resources>
