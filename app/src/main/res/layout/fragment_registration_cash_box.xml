@@ -169,9 +169,9 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/registration_cash_box_contact_number"
                     android:inputType="phone"
-                    android:text="@string/registration_cash_box_code_region"
                     android:maxLength="12"
-                    android:maxLines="1" />
+                    android:maxLines="1"
+                    android:text="@string/registration_cash_box_code_region" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textview.MaterialTextView
@@ -187,7 +187,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilTypeObject"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_28"
@@ -196,13 +196,13 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvUseCashBox">
 
-                <AutoCompleteTextView
-                    android:id="@+id/tvTypeObject"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etTypeObject"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="none"
+                    android:inputType="textCapSentences"
                     android:maxLength="200"
-                    tools:ignore="LabelFor" />
+                    android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout

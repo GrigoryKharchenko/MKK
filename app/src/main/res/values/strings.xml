@@ -24,4 +24,20 @@
     <string name="registration_cash_box_contact_number">Контактный номер телефона субъкта</string>
     <string name="registration_cash_box_helper_contact_number">Введите коректный номер</string>
     <string name="registration_cash_box_code_region">+7</string>
+
+    <!-- ErrorMessageRegistrationCashBox -->
+    <string name="error_name_subject">Укажите наименование субъекта</string>
+    <string name="error_inn_subject">Укажите ИНН субъекта</string>
+    <string name="error_address_subject">Укажите адресс субъекта</string>
+    <string name="error_dislocation_tax">Выберите место налоговой регистрации</string>
+    <string name="error_tax_mode">Выберите налоговый режим</string>
+    <string name="error_contact_number">Введите контактный номер телефона</string>
+    <string name="error_type_object">Укажите вид объекта</string>
+    <string name="error_name_object">Укажите наименование объекта</string>
+    <string name="error_address_object">Укажите адресс объекта</string>
+    <string name="error_type_action">Укажите вид деятельности субъекта</string>
+
+    <!-- TaxMode -->
+    <string name="tax_mode_special">Специальный налоговоый режим</string>
+    <string name="tax_mode_regular">Обычный налоговоый режим</string>
 </resources>

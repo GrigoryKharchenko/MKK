@@ -1,7 +1,7 @@
 package com.mkk.ru.di.module
 
 import com.mkk.ru.data.SubdivisionRepositoryImpl
-import com.mkk.ru.domain.SubdivisionsRepository
+import com.mkk.ru.domain.repository.SubdivisionsRepository
 import dagger.Binds
 import dagger.Module
 

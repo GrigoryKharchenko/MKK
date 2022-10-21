@@ -10,8 +10,8 @@ import javax.inject.Inject
 
 class SplashScreenViewModel @Inject constructor() : ViewModel() {
 
-    private var _fragmentFlow = MutableSharedFlow<Unit>()
-    val fragmentFlow = _fragmentFlow.asSharedFlow()
+    private var _openRegistrationCashBoxFragmentFlow = MutableSharedFlow<Unit>()
+    val openRegistrationCashBoxFragmentFlow = _openRegistrationCashBoxFragmentFlow.asSharedFlow()
 
     init {
         openRegistrationFragment()
@@ -20,7 +20,7 @@ class SplashScreenViewModel @Inject constructor() : ViewModel() {
     private fun openRegistrationFragment() {
         viewModelScope.launch {
             delay(TIME_FOR_OPEN_FRAGMENT)
-            _fragmentFlow.emit(Unit)
+            _openRegistrationCashBoxFragmentFlow.emit(Unit)
         }
     }
 
