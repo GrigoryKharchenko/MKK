@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mkk.ru.R
 import com.mkk.ru.domain.model.SubdivisionModel
+import com.mkk.ru.domain.repository.LoginRepository
 import com.mkk.ru.domain.repository.SubdivisionsRepository
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,7 +14,8 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class RegistrationCashBoxViewModel @Inject constructor(
-    private val subdivisionsRepository: SubdivisionsRepository
+    private val subdivisionsRepository: SubdivisionsRepository,
+    private val loginRepository: LoginRepository,
 ) : ViewModel() {
 
     private var _subdivisionsFlow = MutableStateFlow<List<SubdivisionModel>>(emptyList())
@@ -24,6 +26,9 @@ class RegistrationCashBoxViewModel @Inject constructor(
 
     private var _openRequestAcceptanceFragmentFlow = MutableSharedFlow<Unit>()
     val openRequestAcceptanceFragmentFlow = _openRequestAcceptanceFragmentFlow.asSharedFlow()
+
+    private var _statusProgressBarFlow = MutableSharedFlow<Boolean>()
+    val statusProgressBarFlow = _statusProgressBarFlow.asSharedFlow()
 
     init {
         getSubdivisions()
@@ -59,7 +64,22 @@ class RegistrationCashBoxViewModel @Inject constructor(
                 typeObject.isEmpty() -> _showSnackbarFlow.emit(R.string.error_name_object)
                 nameObject.isEmpty() -> _showSnackbarFlow.emit(R.string.error_address_object)
                 addressObject.isEmpty() -> _showSnackbarFlow.emit(R.string.error_type_action)
-                else -> _openRequestAcceptanceFragmentFlow.emit(Unit)
+                else -> sendRequest()
+            }
+        }
+    }
+
+    private fun sendRequest() {
+        viewModelScope.launch {
+            _statusProgressBarFlow.emit(true)
+            runCatching {
+                loginRepository.login()
+            }.onSuccess {
+                _statusProgressBarFlow.emit(false)
+                _openRequestAcceptanceFragmentFlow.emit(Unit)
+            }.onFailure {
+                _statusProgressBarFlow.emit(false)
+                _showSnackbarFlow.emit(R.string.error_request)
             }
         }
     }
