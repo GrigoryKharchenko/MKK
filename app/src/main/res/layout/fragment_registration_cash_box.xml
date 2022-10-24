@@ -283,9 +283,9 @@
 
     </ScrollView>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSendRequest"
-        style="@style/OutlinedButton.TealBasic.WhiteText.14.Corners8"
+        style="@style/TealBasicButton.TextSize14"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dp_16"

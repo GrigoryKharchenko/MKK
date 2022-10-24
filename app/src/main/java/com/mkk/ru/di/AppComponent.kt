@@ -4,6 +4,7 @@ import android.content.Context
 import com.mkk.ru.MkkApp
 import com.mkk.ru.di.module.ActivityModule
 import com.mkk.ru.di.module.FragmentModule
+import com.mkk.ru.di.module.PreferenceManagerModule
 import com.mkk.ru.di.module.RepositoryModule
 import com.mkk.ru.di.module.ViewModelModule
 import dagger.BindsInstance
@@ -22,6 +23,7 @@ import javax.inject.Singleton
         FragmentModule::class,
         ViewModelModule::class,
         RepositoryModule::class,
+        PreferenceManagerModule::class,
     ]
 )
 interface AppComponent : AndroidInjector<MkkApp> {

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/WhiteBackgroundLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/registrationLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/splash_screen_background_gradient_color"
+        app:layout_constraintDimensionRatio="3:2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_logo" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/registrationLayout">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/clInfo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_16">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvTitle"
+                    style="@style/Text.Black.20.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp_40"
+                    android:text="@string/claim_status_title" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvDescriptionClaim"
+                    style="@style/Text.Gray.16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:text="@string/claim_status_description_claim" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvLastUpdateClaim"
+                    style="@style/Text.TealBasic.16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_24"
+                    android:gravity="center"
+                    tools:text="Время последнего обновления статуса заявки: 11.02.2020 22:22" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnClose"
+        style="@style/WhiteButtonTextColorTealBasic.TextSize16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_40"
+        android:layout_marginBottom="@dimen/dp_16"
+        android:padding="@dimen/dp_16"
+        android:text="@string/claim_status_close"
+        app:layout_constraintBottom_toTopOf="@id/btnUpdate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnUpdate"
+        style="@style/TealBasicButton.TextSize16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_16"
+        android:padding="@dimen/dp_16"
+        android:text="@string/claim_status_update"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/flProgress"
+        style="@style/ProgressBarStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true" />
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

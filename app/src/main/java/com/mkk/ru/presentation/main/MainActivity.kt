@@ -2,6 +2,8 @@ package com.mkk.ru.presentation.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import com.mkk.ru.R
 import com.mkk.ru.presentation.screen.splashscreen.SplashScreenFragment
 import dagger.android.AndroidInjection
@@ -21,9 +23,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), HasAndroidInject
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         if (savedInstanceState == null)
-            supportFragmentManager
-                .beginTransaction()
-                .add(R.id.container, SplashScreenFragment.newInstance())
-                .commit()
+            supportFragmentManager.commit {
+                setReorderingAllowed(true)
+                replace<SplashScreenFragment>(R.id.container)
+            }
     }
 }

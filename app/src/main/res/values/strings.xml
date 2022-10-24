@@ -41,4 +41,11 @@
     <!-- TaxMode -->
     <string name="tax_mode_special">Специальный налоговоый режим</string>
     <string name="tax_mode_regular">Обычный налоговоый режим</string>
+
+    <!-- ClaimStatusFragment -->
+    <string name="claim_status_title">Заявка принята</string>
+    <string name="claim_status_date">Время последней проверки\nзаявки: %s</string>
+    <string name="claim_status_close">Закрыть</string>
+    <string name="claim_status_update">Обновить</string>
+    <string name="claim_status_description_claim">Ваша заявка на регистрацию мобильной кассы отправлена в налоговую службу. Заявка будет рассмотрена в течение нескольких дней. Ожидайте сообщения.</string>
 </resources>
