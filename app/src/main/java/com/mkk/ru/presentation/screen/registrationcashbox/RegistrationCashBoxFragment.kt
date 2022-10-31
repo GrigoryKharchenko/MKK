@@ -13,9 +13,10 @@ import com.mkk.ru.R
 import com.mkk.ru.databinding.FragmentRegistrationCashBoxBinding
 import com.mkk.ru.domain.model.SubdivisionModel
 import com.mkk.ru.extension.launchWhenStarted
+import com.mkk.ru.extension.safeOnClickListener
 import com.mkk.ru.extension.showSnackbar
 import com.mkk.ru.presentation.base.BaseFragment
-import com.mkk.ru.presentation.screen.requestacceptance.RequestAcceptanceFragment
+import com.mkk.ru.presentation.screen.claimstatus.ClaimStatusFragment
 import kotlinx.coroutines.flow.onEach
 
 class RegistrationCashBoxFragment : BaseFragment<RegistrationCashBoxViewModel>() {
@@ -35,7 +36,7 @@ class RegistrationCashBoxFragment : BaseFragment<RegistrationCashBoxViewModel>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         with(binding) {
-            btnSendRequest.setOnClickListener {
+            btnSendRequest.safeOnClickListener {
                 viewModel.checkValidation(
                     nameSubject = etNameSubject.text.toString(),
                     innSubject = etInn.text.toString(),
@@ -51,17 +52,17 @@ class RegistrationCashBoxFragment : BaseFragment<RegistrationCashBoxViewModel>()
             }
         }
         with(viewModel) {
-            showSnackbarFlow.onEach {
-                showSnackbar(it)
+            showSnackbarFlow.onEach { showSnackBar ->
+                showSnackbar(showSnackBar)
             }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
             openRequestAcceptanceFragmentFlow.onEach {
                 openRequestAcceptanceFragment()
             }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
-            subdivisionsFlow.onEach {
-                setSubdivision(it)
+            subdivisionsFlow.onEach { subdivisions ->
+                setSubdivision(subdivisions)
             }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
-            statusProgressBarFlow.onEach {
-                binding.flProgress.isVisible = it
+            statusProgressBarFlow.onEach { statusProgressBar ->
+                binding.flProgress.isVisible = statusProgressBar
             }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
         }
         setTaxMode()
@@ -82,8 +83,7 @@ class RegistrationCashBoxFragment : BaseFragment<RegistrationCashBoxViewModel>()
     private fun openRequestAcceptanceFragment() {
         parentFragmentManager.commit {
             setReorderingAllowed(true)
-            addToBackStack(TAG)
-            replace<RequestAcceptanceFragment>(R.id.container)
+            replace<ClaimStatusFragment>(R.id.container)
         }
     }
 

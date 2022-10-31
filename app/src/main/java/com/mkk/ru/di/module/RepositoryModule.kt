@@ -1,7 +1,7 @@
 package com.mkk.ru.di.module
 
-import com.mkk.ru.data.LoginRepositoryImpl
-import com.mkk.ru.data.SubdivisionRepositoryImpl
+import com.mkk.ru.data.repository.LoginRepositoryImpl
+import com.mkk.ru.data.repository.SubdivisionRepositoryImpl
 import com.mkk.ru.domain.repository.LoginRepository
 import com.mkk.ru.domain.repository.SubdivisionsRepository
 import dagger.Binds

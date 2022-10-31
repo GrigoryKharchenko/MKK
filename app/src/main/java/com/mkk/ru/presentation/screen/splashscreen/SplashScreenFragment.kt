@@ -49,8 +49,4 @@ class SplashScreenFragment : BaseFragment<SplashScreenViewModel>() {
         super.onDestroyView()
         _binding = null
     }
-
-    companion object {
-        fun newInstance() = SplashScreenFragment()
-    }
 }

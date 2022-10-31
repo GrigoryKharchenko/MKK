@@ -1,4 +1,4 @@
-package com.mkk.ru.data
+package com.mkk.ru.data.repository
 
 import com.mkk.ru.domain.repository.SubdivisionsRepository
 import com.mkk.ru.domain.model.SubdivisionModel
