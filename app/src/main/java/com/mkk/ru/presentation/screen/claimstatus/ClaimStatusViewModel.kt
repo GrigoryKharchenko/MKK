@@ -2,7 +2,6 @@ package com.mkk.ru.presentation.screen.claimstatus
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mkk.ru.R
 import com.mkk.ru.domain.preference.PreferenceManager
 import com.mkk.ru.domain.repository.LoginRepository
 import com.mkk.ru.utilits.DateUtil
@@ -22,8 +21,11 @@ class ClaimStatusViewModel @Inject constructor(
     private var _currentDateFlow = MutableSharedFlow<String>(replay = 1)
     val currentDateFlow = _currentDateFlow.asSharedFlow()
 
-    private var _showSnackBarFlow = MutableSharedFlow<Int>()
-    val showSnackBarFlow = _showSnackBarFlow.asSharedFlow()
+    private var _openRegistrationRefusalFragment = MutableSharedFlow<Unit>()
+    val openRegistrationRefusalFragment = _openRegistrationRefusalFragment.asSharedFlow()
+
+    private var _showDialogFlow = MutableSharedFlow<Unit>()
+    val showDialogFlow = _showDialogFlow.asSharedFlow()
 
     init {
         viewModelScope.launch {
@@ -41,8 +43,9 @@ class ClaimStatusViewModel @Inject constructor(
                 val currentDate = DateUtil.getCurrentDate()
                 preferenceManager.saveCurrentDate(currentDate)
                 _currentDateFlow.emit(currentDate)
+                _showDialogFlow.emit(Unit)
             }.onFailure {
-                _showSnackBarFlow.emit(R.string.error_request)
+                _openRegistrationRefusalFragment.emit(Unit)
             }
         }
     }

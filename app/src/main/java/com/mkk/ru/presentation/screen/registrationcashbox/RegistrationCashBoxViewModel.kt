@@ -54,16 +54,16 @@ class RegistrationCashBoxViewModel @Inject constructor(
     ) {
         viewModelScope.launch {
             when {
-                nameSubject.isEmpty() -> _showSnackbarFlow.emit(R.string.error_name_object)
+                nameSubject.isEmpty() -> _showSnackbarFlow.emit(R.string.error_name_subject)
                 innSubject.length < MAX_LENGTH_INN -> _showSnackbarFlow.emit(R.string.error_inn_subject)
                 addressSubject.isEmpty() -> _showSnackbarFlow.emit(R.string.error_address_subject)
                 dislocationTax.isEmpty() -> _showSnackbarFlow.emit(R.string.error_dislocation_tax)
                 taxMode.isEmpty() -> _showSnackbarFlow.emit(R.string.error_tax_mode)
-                typeAction.isEmpty() -> _showSnackbarFlow.emit(R.string.error_contact_number)
+                typeAction.isEmpty() -> _showSnackbarFlow.emit(R.string.error_type_action)
                 contactNumber.length < MAX_LENGTH_PHONE_NUMBER -> _showSnackbarFlow.emit(R.string.error_type_object)
-                typeObject.isEmpty() -> _showSnackbarFlow.emit(R.string.error_name_object)
-                nameObject.isEmpty() -> _showSnackbarFlow.emit(R.string.error_address_object)
-                addressObject.isEmpty() -> _showSnackbarFlow.emit(R.string.error_type_action)
+                typeObject.isEmpty() -> _showSnackbarFlow.emit(R.string.error_type_object)
+                nameObject.isEmpty() -> _showSnackbarFlow.emit(R.string.error_name_object)
+                addressObject.isEmpty() -> _showSnackbarFlow.emit(R.string.error_address_object)
                 else -> sendRequest()
             }
         }
