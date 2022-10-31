@@ -53,8 +53,20 @@
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
 
+    <style name="Text.TealBasic.14">
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+
     <style name="Text.TealBasic.16">
         <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+
+    <style name="Text.TealBasic.20">
+        <item name="android:textSize">@dimen/sp_20</item>
+    </style>
+
+    <style name="Text.TealBasic.20.Title">
+        <item name="fontFamily">sans-serif-medium</item>
     </style>
 
     <style name="Text.TealBasic.30">
