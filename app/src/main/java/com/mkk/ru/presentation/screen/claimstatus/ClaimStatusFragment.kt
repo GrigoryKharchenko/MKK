@@ -11,9 +11,9 @@ import com.mkk.ru.databinding.FragmentClaimStatusBinding
 import com.mkk.ru.extension.addFragment
 import com.mkk.ru.extension.launchWhenStarted
 import com.mkk.ru.extension.safeOnClickListener
-import com.mkk.ru.extension.showSuccessDialog
+import com.mkk.ru.extension.showDialog
 import com.mkk.ru.presentation.base.BaseFragment
-import com.mkk.ru.presentation.screen.registrationcashbox.RegistrationCashBoxFragment
+import com.mkk.ru.presentation.screen.registrationpersonalaccount.RegistrationPersonalAccountFragment
 import com.mkk.ru.presentation.screen.registrationrefusal.RegistrationRefusalFragment
 import kotlinx.coroutines.flow.onEach
 
@@ -56,17 +56,17 @@ class ClaimStatusFragment : BaseFragment<ClaimStatusViewModel>() {
                 addFragment<RegistrationRefusalFragment>(R.id.container)
             }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
             showDialogFlow.onEach {
-               showSuccessDialog()
+                showSuccessDialog()
             }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
         }
     }
 
     private fun showSuccessDialog() {
-        showSuccessDialog(
+        showDialog(
             title = R.string.dialog_success_registration_title,
             message = R.string.dialog_success_registration_description,
-            positiveButton = R.string.dialog_success_registration_next,
-            onClickPositiveButton = { addFragment<RegistrationCashBoxFragment>(R.id.container) }
+            positiveButton = R.string.dialog_next_button,
+            onClickPositiveButton = { addFragment<RegistrationPersonalAccountFragment>(R.id.container) }
         )
     }
 

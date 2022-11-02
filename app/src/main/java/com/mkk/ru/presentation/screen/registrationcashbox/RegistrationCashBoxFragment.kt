@@ -12,6 +12,7 @@ import com.mkk.ru.databinding.FragmentRegistrationCashBoxBinding
 import com.mkk.ru.domain.model.SubdivisionModel
 import com.mkk.ru.extension.addFragment
 import com.mkk.ru.extension.launchWhenStarted
+import com.mkk.ru.extension.mapToListString
 import com.mkk.ru.extension.safeOnClickListener
 import com.mkk.ru.extension.showSnackbar
 import com.mkk.ru.presentation.base.BaseFragment
@@ -67,9 +68,12 @@ class RegistrationCashBoxFragment : BaseFragment<RegistrationCashBoxViewModel>()
         setTaxMode()
     }
 
-    private fun setSubdivision(subdivisionModel: List<SubdivisionModel>) {
-        val subdivisionAdapter =
-            ArrayAdapter(requireContext(), R.layout.bottom_menu, subdivisionModel.map { it.name })
+    private fun setSubdivision(subdivisionModel: List<String>) {
+        val subdivisionAdapter = ArrayAdapter(
+            requireContext(),
+            R.layout.bottom_menu,
+            subdivisionModel
+        )
         binding.tvDislocationTax.setAdapter(subdivisionAdapter)
     }
 
@@ -82,9 +86,5 @@ class RegistrationCashBoxFragment : BaseFragment<RegistrationCashBoxViewModel>()
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    companion object {
-        const val TAG = "RegistrationCashBoxFragment"
     }
 }

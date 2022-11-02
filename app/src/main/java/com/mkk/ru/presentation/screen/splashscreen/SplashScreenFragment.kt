@@ -12,6 +12,7 @@ import com.mkk.ru.extension.addFragment
 import com.mkk.ru.extension.launchWhenStarted
 import com.mkk.ru.presentation.base.BaseFragment
 import com.mkk.ru.presentation.screen.registrationcashbox.RegistrationCashBoxFragment
+import com.mkk.ru.presentation.screen.registrationpersonalaccount.RegistrationPersonalAccountFragment
 import kotlinx.coroutines.flow.onEach
 
 class SplashScreenFragment : BaseFragment<SplashScreenViewModel>() {

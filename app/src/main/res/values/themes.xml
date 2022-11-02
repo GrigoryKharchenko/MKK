@@ -53,6 +53,10 @@
         <item name="android:textSize">@dimen/sp_16</item>
     </style>
 
+    <style name="Text.TealBasic.30">
+        <item name="android:textSize">@dimen/sp_30</item>
+    </style>
+
     <style name="Text.Black">
         <item name="android:textColor">@color/black</item>
     </style>
@@ -71,6 +75,10 @@
 
     <style name="Text.Gray">
         <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="Text.Gray.14">
+        <item name="android:textSize">@dimen/sp_14</item>
     </style>
 
     <style name="Text.Gray.16">

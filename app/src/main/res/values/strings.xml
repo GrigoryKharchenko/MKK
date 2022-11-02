@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">MKK</string>
+    <string name="empty" />
+    <string name="dialog_next_button">Далее</string>
 
     <!--SplashScreenFragment-->
     <string name="splash_screen_fragment_title">Мобильные Кассы\nКыргызстана</string>
@@ -57,5 +59,20 @@
     <!-- DialogSuccessRegistration -->
     <string name="dialog_success_registration_title">Успешная регистрация!</string>
     <string name="dialog_success_registration_description">Поздравляем, вы зарегистрировали мобильную кассу на своем смартфоне. Необходимо также зарегистрироваться в Личном кабинете.</string>
-    <string name="dialog_success_registration_next">Далее</string>
+
+    <!-- RegistrationInPersonalAccountFragment -->
+    <string name="registration_in_personal_account_title">Регистрация\nв Личном кабинете</string>
+    <string name="registration_in_personal_account_description">Регистрация в личном кабинете необходима для электронной отчетности операций по кассе в\nналоговой службе.</string>
+    <string name="registration_in_personal_account_login">Email</string>
+    <string name="registration_in_personal_account_password">Пароль</string>
+    <string name="registration_in_personal_account_condition_password">Пароль должен содержать цифры, минимум один спецсимвол, прописные и строчные буквы и состоять не менее из 8 символов.</string>
+    <string name="registration_in_personal_account_registration">Зарегистрироваться</string>
+    <string name="registration_in_personal_account_error_email">Некоректный Email</string>
+    <string name="registration_in_personal_account_error_password">Пароль введен некоректно</string>
+
+    <!-- DialogRegistrationInPersonalAccount -->
+    <string name="dialog_success_registration_in_personal_account_title">Поздравляем!</string>
+    <string name="dialog_success_registration_in_personal_account_description">Вы зарегистрировались в Личном кабинете.Может начинать работать.</string>
+    <string name="dialog_failure_registration_in_personal_account_title">Ошибка</string>
+    <string name="dialog_failure_registration_in_personal_account_description">При регистрации произошла ошибка. Такой e-mail уже зарегистрирован. Попробуйте еще раз.</string>
 </resources>
