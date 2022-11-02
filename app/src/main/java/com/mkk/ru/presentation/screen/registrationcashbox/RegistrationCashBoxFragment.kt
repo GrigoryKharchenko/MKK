@@ -6,12 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.core.view.isVisible
-import androidx.fragment.app.commit
-import androidx.fragment.app.replace
 import androidx.lifecycle.lifecycleScope
 import com.mkk.ru.R
 import com.mkk.ru.databinding.FragmentRegistrationCashBoxBinding
 import com.mkk.ru.domain.model.SubdivisionModel
+import com.mkk.ru.extension.addFragment
 import com.mkk.ru.extension.launchWhenStarted
 import com.mkk.ru.extension.safeOnClickListener
 import com.mkk.ru.extension.showSnackbar
@@ -56,7 +55,7 @@ class RegistrationCashBoxFragment : BaseFragment<RegistrationCashBoxViewModel>()
                 showSnackbar(showSnackBar)
             }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
             openRequestAcceptanceFragmentFlow.onEach {
-                openRequestAcceptanceFragment()
+                addFragment<ClaimStatusFragment>(R.id.container)
             }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
             subdivisionsFlow.onEach { subdivisions ->
                 setSubdivision(subdivisions)
@@ -78,13 +77,6 @@ class RegistrationCashBoxFragment : BaseFragment<RegistrationCashBoxViewModel>()
         val arrayString = arrayListOf(getString(R.string.tax_mode_regular), getString(R.string.tax_mode_special))
         val taxMode = ArrayAdapter(requireContext(), R.layout.bottom_menu, arrayString)
         binding.tvTaxMode.setAdapter(taxMode)
-    }
-
-    private fun openRequestAcceptanceFragment() {
-        parentFragmentManager.commit {
-            setReorderingAllowed(true)
-            replace<ClaimStatusFragment>(R.id.container)
-        }
     }
 
     override fun onDestroyView() {

@@ -8,10 +8,13 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.mkk.ru.R
 import com.mkk.ru.databinding.FragmentClaimStatusBinding
+import com.mkk.ru.extension.addFragment
 import com.mkk.ru.extension.launchWhenStarted
 import com.mkk.ru.extension.safeOnClickListener
-import com.mkk.ru.extension.showSnackbar
+import com.mkk.ru.extension.showSuccessDialog
 import com.mkk.ru.presentation.base.BaseFragment
+import com.mkk.ru.presentation.screen.registrationcashbox.RegistrationCashBoxFragment
+import com.mkk.ru.presentation.screen.registrationrefusal.RegistrationRefusalFragment
 import kotlinx.coroutines.flow.onEach
 
 class ClaimStatusFragment : BaseFragment<ClaimStatusViewModel>() {
@@ -38,6 +41,10 @@ class ClaimStatusFragment : BaseFragment<ClaimStatusViewModel>() {
                 viewModel.updateRequest()
             }
         }
+        processingFlow()
+    }
+
+    private fun processingFlow() {
         with(viewModel) {
             statusProgressBarFlow.onEach { statusProgressBar ->
                 binding.flProgress.isVisible = statusProgressBar
@@ -45,10 +52,22 @@ class ClaimStatusFragment : BaseFragment<ClaimStatusViewModel>() {
             currentDateFlow.onEach { currentDate ->
                 binding.tvLastUpdateClaim.text = getString(R.string.claim_status_date, currentDate)
             }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
-            showSnackBarFlow.onEach { snackBar ->
-                showSnackbar(snackBar)
+            openRegistrationRefusalFragment.onEach {
+                addFragment<RegistrationRefusalFragment>(R.id.container)
+            }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
+            showDialogFlow.onEach {
+               showSuccessDialog()
             }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
         }
+    }
+
+    private fun showSuccessDialog() {
+        showSuccessDialog(
+            title = R.string.dialog_success_registration_title,
+            message = R.string.dialog_success_registration_description,
+            positiveButton = R.string.dialog_success_registration_next,
+            onClickPositiveButton = { addFragment<RegistrationCashBoxFragment>(R.id.container) }
+        )
     }
 
     override fun onDestroyView() {

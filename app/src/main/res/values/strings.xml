@@ -20,9 +20,7 @@
     <string name="registration_cash_box_address_object">Адрес места располжения объекта</string>
     <string name="registration_cash_box_information_cash_box">ИНФОРМАЦИЯ О КАССЕ:</string>
     <string name="registration_cash_box_model_KKM">Модель ККМ</string>
-    <string name="registration_cash_box_fiks_registrator">Фискальный регистратр №</string>
     <string name="registration_cash_box_contact_number">Контактный номер телефона субъкта</string>
-    <string name="registration_cash_box_helper_contact_number">Введите коректный номер</string>
     <string name="registration_cash_box_code_region">+7</string>
 
     <!-- ErrorMessageRegistrationCashBox -->
@@ -48,4 +46,16 @@
     <string name="claim_status_close">Закрыть</string>
     <string name="claim_status_update">Обновить</string>
     <string name="claim_status_description_claim">Ваша заявка на регистрацию мобильной кассы отправлена в налоговую службу. Заявка будет рассмотрена в течение нескольких дней. Ожидайте сообщения.</string>
+
+    <!-- RegistrationRefusalFragment -->
+    <string name="registration_refusal_title">Отказ в регистрации</string>
+    <string name="registration_refusal_description">К сожалению, ваша заявка на регистрацию мобильной кассы отклонена.</string>
+    <string name="registration_refusal_comment_title">Комментарий сотрудника налоговой службы:</string>
+    <string name="registration_refusal_name_employee">С уважением, сотрудник %s</string>
+    <string name="registration_refusal_apply_again">Подать заявку снова</string>
+
+    <!-- DialogSuccessRegistration -->
+    <string name="dialog_success_registration_title">Успешная регистрация!</string>
+    <string name="dialog_success_registration_description">Поздравляем, вы зарегистрировали мобильную кассу на своем смартфоне. Необходимо также зарегистрироваться в Личном кабинете.</string>
+    <string name="dialog_success_registration_next">Далее</string>
 </resources>

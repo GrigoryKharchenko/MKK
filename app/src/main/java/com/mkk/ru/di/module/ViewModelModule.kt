@@ -2,8 +2,9 @@ package com.mkk.ru.di.module
 
 import androidx.lifecycle.ViewModel
 import com.mkk.ru.di.ViewModelKey
-import com.mkk.ru.presentation.screen.registrationcashbox.RegistrationCashBoxViewModel
 import com.mkk.ru.presentation.screen.claimstatus.ClaimStatusViewModel
+import com.mkk.ru.presentation.screen.registrationcashbox.RegistrationCashBoxViewModel
+import com.mkk.ru.presentation.screen.registrationrefusal.RegistrationRefusalViewModel
 import com.mkk.ru.presentation.screen.splashscreen.SplashScreenViewModel
 import dagger.Binds
 import dagger.Module
@@ -26,5 +27,10 @@ interface ViewModelModule {
     @IntoMap
     @ViewModelKey(ClaimStatusViewModel::class)
     fun bindClaimStatusViewModel(viewModel: ClaimStatusViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(RegistrationRefusalViewModel::class)
+    fun bindRegistrationRefusalViewModel(viewModel: RegistrationRefusalViewModel): ViewModel
 
 }
