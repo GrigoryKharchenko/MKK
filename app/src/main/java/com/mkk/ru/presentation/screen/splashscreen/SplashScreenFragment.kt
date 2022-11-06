@@ -11,6 +11,7 @@ import com.mkk.ru.databinding.FragmentSplashScreenBinding
 import com.mkk.ru.extension.addFragment
 import com.mkk.ru.extension.launchWhenStarted
 import com.mkk.ru.presentation.base.BaseFragment
+import com.mkk.ru.presentation.screen.menu.MenuFragment
 import com.mkk.ru.presentation.screen.registrationcashbox.RegistrationCashBoxFragment
 import com.mkk.ru.presentation.screen.registrationpersonalaccount.RegistrationPersonalAccountFragment
 import kotlinx.coroutines.flow.onEach
