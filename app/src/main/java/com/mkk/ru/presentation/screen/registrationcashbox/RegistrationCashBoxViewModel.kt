@@ -3,9 +3,9 @@ package com.mkk.ru.presentation.screen.registrationcashbox
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mkk.ru.R
-import com.mkk.ru.domain.model.SubdivisionModel
 import com.mkk.ru.domain.repository.LoginRepository
 import com.mkk.ru.domain.repository.SubdivisionsRepository
+import com.mkk.ru.extension.mapToListString
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -18,7 +18,7 @@ class RegistrationCashBoxViewModel @Inject constructor(
     private val loginRepository: LoginRepository,
 ) : ViewModel() {
 
-    private var _subdivisionsFlow = MutableStateFlow<List<SubdivisionModel>>(emptyList())
+    private var _subdivisionsFlow = MutableStateFlow<List<String>>(emptyList())
     val subdivisionsFlow = _subdivisionsFlow.asStateFlow()
 
     private var _showSnackbarFlow = MutableSharedFlow<Int>()
@@ -36,7 +36,7 @@ class RegistrationCashBoxViewModel @Inject constructor(
 
     private fun getSubdivisions() {
         viewModelScope.launch {
-            _subdivisionsFlow.emit(subdivisionsRepository.getSubdivisions())
+            _subdivisionsFlow.emit(subdivisionsRepository.getSubdivisions().mapToListString())
         }
     }
 
