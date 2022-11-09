@@ -75,4 +75,15 @@
     <string name="dialog_success_registration_in_personal_account_description">Вы зарегистрировались в Личном кабинете.Может начинать работать.</string>
     <string name="dialog_failure_registration_in_personal_account_title">Ошибка</string>
     <string name="dialog_failure_registration_in_personal_account_description">При регистрации произошла ошибка. Такой e-mail уже зарегистрирован. Попробуйте еще раз.</string>
+    
+    <!-- MenuFragment -->
+    <string name="menu_toolbar_title">Меню</string>
+    <string name="menu_open_shift">Открыть смену</string>
+    <string name="menu_sale">Продажа</string>
+    <string name="menu_list_checks">Список чеков</string>
+    <string name="menu_list_reports">Список отчетов</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="menu_turn_off_cash_box">Выключить кассу</string>
+    <string name="menu_close_shift">Закрытие смены</string>
+    <string name="menu_generate_report">Сформировать Х-отчет</string>
 </resources>

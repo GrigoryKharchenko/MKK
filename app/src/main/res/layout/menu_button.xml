@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="@dimen/dp_4"
+    android:background="@drawable/menu_button_ripple"
+    android:backgroundTint="@color/teal_dark"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_16">
+
+    <ImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_14"
+        tools:src="@drawable/ic_printer" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvDescription"
+        style="@style/Text.White.14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Открыть смену" />
+
+</LinearLayout>

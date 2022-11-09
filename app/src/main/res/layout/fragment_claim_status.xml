@@ -79,7 +79,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnClose"
-        style="@style/WhiteButtonTextColorTealBasic.TextSize16"
+        style="@style/OutlinedWhiteButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dp_16"
@@ -93,7 +93,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnUpdate"
-        style="@style/TealBasicButton.TextSize16"
+        style="@style/OutlinedTealBasicButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dp_16"

@@ -13,4 +13,9 @@
     <color name="gray">#666666</color>
     <color name="red">#F10000</color>
     <color name="gray_alfa_30">#4DA6A6A6</color>
+    <color name="emerald">#3F8499</color>
+    <color name="purple">#4D61CD</color>
+    <color name="dark_blue">#0043B6</color>
+    <color name="light_blue">#00ADF1</color>
+    <color name="green">#6FB450</color>
 </resources>
