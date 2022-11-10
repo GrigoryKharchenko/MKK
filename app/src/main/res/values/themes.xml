@@ -33,6 +33,10 @@
         <item name="android:textSize">@dimen/sp_16</item>
     </style>
 
+    <style name="Text.White.24">
+        <item name="android:textSize">@dimen/sp_24</item>
+    </style>
+
     <style name="Text.White.8">
         <item name="android:textSize">@dimen/sp_8</item>
     </style>
@@ -101,14 +105,14 @@
         <item name="android:textSize">@dimen/sp_16</item>
     </style>
 
-    <style name="WhiteBackgroundLayout">
+    <style name="WhiteBackgroundLayout" parent="Theme.MKK">
         <item name="android:background">@color/white</item>
     </style>
 
     <style name="ProgressBarStyle">
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
-        <item name="android:background">@color/gray_alfa_30</item>
+        <item name="android:background">@color/gray_alpha_30</item>
     </style>
 
     <style name="OutlinedTealBasicButton" parent="Widget.MaterialComponents.Button">
@@ -141,6 +145,20 @@
         <item name="backgroundTint">@color/white</item>
         <item name="strokeColor">@color/red</item>
         <item name="strokeWidth">@dimen/dp_1</item>
+    </style>
+
+    <style name="PaymentButton" >
+        <item name="android:background">@drawable/custom_button_ripple</item>
+        <item name="android:backgroundTint">@color/light_gray</item>
+    </style>
+
+    <style name="ButtonWithTopIcon" >
+        <item name="android:background">@drawable/custom_button_ripple</item>
+        <item name="android:backgroundTint">@color/teal_dark</item>
+    </style>
+
+    <style name="GreenToolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="android:background">@color/green</item>
     </style>
 
 </resources>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/PaymentButton"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="@dimen/dp_4"
+    android:padding="@dimen/dp_16">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvAmount"
+        style="@style/Text.White.24"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_14"
+        tools:text="0"
+        app:layout_constraintBaseline_toBottomOf="@id/ivCurrency"
+        app:layout_constraintBottom_toTopOf="@id/tvDescription"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivCurrency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_4"
+        android:src="@drawable/ic_currency"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAmount"
+        app:layout_constraintStart_toEndOf="@id/tvAmount"
+        app:layout_constraintTop_toTopOf="@+id/tvAmount" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvDescription"
+        style="@style/Text.White.14"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_14"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAmount"
+        tools:text="Oplatit" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

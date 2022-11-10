@@ -28,7 +28,7 @@
         android:visibility="gone"
         app:constraint_referenced_ids="btnSale,btnCloseShift,btnGenerateReport" />
 
-    <com.mkk.ru.presentation.customview.MenuButton
+    <com.mkk.ru.presentation.customview.ButtonWithTopIcon
         android:id="@+id/btnOpenShift"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/appBar" />
 
-    <com.mkk.ru.presentation.customview.MenuButton
+    <com.mkk.ru.presentation.customview.ButtonWithTopIcon
         android:id="@+id/btnSale"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="btnOpenShift,btnSale" />
 
-    <com.mkk.ru.presentation.customview.MenuButton
+    <com.mkk.ru.presentation.customview.ButtonWithTopIcon
         android:id="@+id/btnChecks"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/barrier" />
 
-    <com.mkk.ru.presentation.customview.MenuButton
+    <com.mkk.ru.presentation.customview.ButtonWithTopIcon
         android:id="@+id/btnReports"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
         app:layout_constraintStart_toEndOf="@id/btnChecks"
         app:layout_constraintTop_toBottomOf="@id/barrier" />
 
-    <com.mkk.ru.presentation.customview.MenuButton
+    <com.mkk.ru.presentation.customview.ButtonWithTopIcon
         android:id="@+id/btnGenerateReport"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -100,7 +100,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnChecks" />
 
-    <com.mkk.ru.presentation.customview.MenuButton
+    <com.mkk.ru.presentation.customview.ButtonWithTopIcon
         android:id="@+id/btnSettings"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

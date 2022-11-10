@@ -5,6 +5,7 @@ import com.mkk.ru.presentation.screen.menu.MenuFragment
 import com.mkk.ru.presentation.screen.registrationcashbox.RegistrationCashBoxFragment
 import com.mkk.ru.presentation.screen.registrationpersonalaccount.RegistrationPersonalAccountFragment
 import com.mkk.ru.presentation.screen.registrationrefusal.RegistrationRefusalFragment
+import com.mkk.ru.presentation.screen.sale.SaleFragment
 import com.mkk.ru.presentation.screen.splashscreen.SplashScreenFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -29,4 +30,7 @@ interface FragmentModule {
 
     @ContributesAndroidInjector
     fun bindMenuFragment(): MenuFragment
+
+    @ContributesAndroidInjector
+    fun bindSaleFragment(): SaleFragment
 }
