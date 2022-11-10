@@ -2,6 +2,8 @@
     <string name="app_name">MKK</string>
     <string name="empty" />
     <string name="dialog_next_button">Далее</string>
+    <string name="dialog_cancel_button">Отмена</string>
+    <string name="dialog_ok_button">OK</string>
 
     <!--SplashScreenFragment-->
     <string name="splash_screen_fragment_title">Мобильные Кассы\nКыргызстана</string>
@@ -75,7 +77,7 @@
     <string name="dialog_success_registration_in_personal_account_description">Вы зарегистрировались в Личном кабинете.Может начинать работать.</string>
     <string name="dialog_failure_registration_in_personal_account_title">Ошибка</string>
     <string name="dialog_failure_registration_in_personal_account_description">При регистрации произошла ошибка. Такой e-mail уже зарегистрирован. Попробуйте еще раз.</string>
-    
+
     <!-- MenuFragment -->
     <string name="menu_toolbar_title">Меню</string>
     <string name="menu_open_shift">Открыть смену</string>
@@ -86,4 +88,13 @@
     <string name="menu_turn_off_cash_box">Выключить кассу</string>
     <string name="menu_close_shift">Закрытие смены</string>
     <string name="menu_generate_report">Сформировать Х-отчет</string>
+    <string name="menu_dialog_cashier">Кассир смены</string>
+    <string name="menu_dialog_name_cashier">Имя, фамилия кассира</string>
+    <string name="menu_snackbar_open_shift">Новая смена открыта. Удачной работы!</string>
+    <string name="menu_dialog_close_shift_title">Закрыть смену</string>
+    <string name="menu_dialog_close_shift_description">Вы действительно хотите закрыть смену и сформировать Z-отчет?</string>
+    <string name="menu_dialog_close_shift_pos_button">Закрыть смену</string>
+    <string name="menu_dialog_shift_closed_title">Смена закрыта</string>
+    <string name="menu_dialog_shift_closed_description">Смена закрыта.Z-отчет сформирован и отправлен на печать.</string>
+    <string name="menu_dialog_invalid_name_cashier">Некорректное имя кассира</string>
 </resources>
