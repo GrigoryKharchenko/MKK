@@ -104,4 +104,29 @@
     <string name="sale_add_product">Добавить товар</string>
     <string name="sale_pay">Оплатить</string>
     <string name="sale_init_value">0</string>
+
+    <!-- AddProductFragment -->
+    <string name="add_product_title">Добавить товар</string>
+    <string name="add_product_product">Товар</string>
+    <string name="add_product_units">Единица измерения</string>
+    <string name="add_product_units_kg">кг</string>
+    <string name="add_product_units_liter">л</string>
+    <string name="add_product_units_piece">шт</string>
+    <string name="add_product_price_kg">Цена за кг, сом</string>
+    <string name="add_product_price_liter">Цена за л, сом</string>
+    <string name="add_product_price_piece">Цена за шт, сом</string>
+    <string name="add_product_amount_piece">Количество, шт.</string>
+    <string name="add_product_amount_liter">Обьем, л</string>
+    <string name="add_product_amount_kg">Вес, г</string>
+    <string name="add_product_code_marking">Код маркировки</string>
+    <string name="add_product_code_product">Код товара</string>
+    <string name="add_product_add_check">Добавить к чеку %s</string>
+    <string name="add_product_undefine_units">Любая</string>
+    <string name="add_product_undefine_price">Укажите цену</string>
+    <string name="add_product_undefine_amount">Укажите вес</string>
+    <string name="add_product_invalid_product">Введите наименование товара</string>
+    <string name="add_product_invalid_units">Введите единицы измерения</string>
+    <string name="add_product_invalid_price">Введите цену</string>
+    <string name="add_product_invalid_amount">Введите количество</string>
+    <string name="add_product_invalid_code_product">Введите код товара</string>
 </resources>

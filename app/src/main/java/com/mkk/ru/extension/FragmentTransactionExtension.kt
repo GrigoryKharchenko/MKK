@@ -10,3 +10,11 @@ inline fun <reified F : Fragment> Fragment.addFragment(containerId: Int) {
         add<F>(containerId)
     }
 }
+
+inline fun <reified F : Fragment> Fragment.addFragment(containerId: Int, tag: String) {
+    parentFragmentManager.commit {
+        setReorderingAllowed(true)
+        addToBackStack(tag)
+        add<F>(containerId)
+    }
+}
