@@ -97,4 +97,11 @@
     <string name="menu_dialog_shift_closed_title">Смена закрыта</string>
     <string name="menu_dialog_shift_closed_description">Смена закрыта.Z-отчет сформирован и отправлен на печать.</string>
     <string name="menu_dialog_invalid_name_cashier">Некорректное имя кассира</string>
+
+    <!-- SaleFragment -->
+    <string name="sale_empty_product">Пока нет\nникаких товаров</string>
+    <string name="sale_add_product_or_scan">Нажмите “Добавить товар”\nили иконку сканирования\nштрих-кода</string>
+    <string name="sale_add_product">Добавить товар</string>
+    <string name="sale_pay">Оплатить</string>
+    <string name="sale_init_value">0</string>
 </resources>

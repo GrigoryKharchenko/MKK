@@ -92,4 +92,9 @@ class MenuFragment : BaseFragment<MenuViewModel>() {
             customDialogBuilder.dismiss()
         }
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

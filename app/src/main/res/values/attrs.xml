@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="MenuButton">
-        <attr name="backgroundColor" format="color"/>
-        <attr name="icon" format="reference"/>
-        <attr name="android:text" format="string"/>
+    <declare-styleable name="ButtonWithTopIcon">
+        <attr name="backgroundColor" format="color" />
+        <attr name="icon" format="reference" />
+        <attr name="android:text" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="PaymentButton">
+        <attr name="backgroundBloom" format="color" />
+        <attr name="iconCurrency" format="reference" />
+        <attr name="textAmount" format="string" />
+        <attr name="textDescription" format="string" />
     </declare-styleable>
 </resources>
