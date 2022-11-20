@@ -27,9 +27,5 @@ enum class TypeUnits(
         unitsResId = R.string.add_product_undefine_units,
         priceResId = R.string.add_product_undefine_price,
         amountResId = R.string.add_product_undefine_amount
-    );
-
-    companion object {
-        val UNITS = values().toList()
-    }
+    )
 }

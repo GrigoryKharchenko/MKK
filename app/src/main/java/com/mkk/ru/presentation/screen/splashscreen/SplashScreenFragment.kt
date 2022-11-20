@@ -11,7 +11,6 @@ import com.mkk.ru.databinding.FragmentSplashScreenBinding
 import com.mkk.ru.extension.addFragment
 import com.mkk.ru.extension.launchWhenStarted
 import com.mkk.ru.presentation.base.BaseFragment
-import com.mkk.ru.presentation.screen.plusproduct.AddProductFragment
 import com.mkk.ru.presentation.screen.registrationcashbox.RegistrationCashBoxFragment
 import kotlinx.coroutines.flow.onEach
 
@@ -34,7 +33,7 @@ class SplashScreenFragment : BaseFragment<SplashScreenViewModel>() {
         binding.tvVersion.text =
             getString(R.string.splash_screen_fragment_app_version, BuildConfig.VERSION_NAME)
         viewModel.openRegistrationCashBoxFragmentFlow.onEach {
-            addFragment<AddProductFragment>(R.id.container)
+            addFragment<RegistrationCashBoxFragment>(R.id.container)
         }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
     }
 

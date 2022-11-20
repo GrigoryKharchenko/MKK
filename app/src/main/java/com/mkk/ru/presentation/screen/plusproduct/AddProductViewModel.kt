@@ -13,7 +13,7 @@ class AddProductViewModel @Inject constructor() : ViewModel() {
     private val _calculateFlow = MutableSharedFlow<String>(replay = 1)
     val calculateFlow = _calculateFlow.asSharedFlow()
 
-    private val _unitsFlow = MutableStateFlow(TypeUnits.UNITS)
+    private val _unitsFlow = MutableStateFlow(TypeUnits.values().toList())
     val unitsFlow = _unitsFlow.asSharedFlow()
 
     fun calculateSum(price: String?, amount: String?) {
