@@ -9,10 +9,8 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.mkk.ru.R
 import com.mkk.ru.databinding.FragmentRegistrationCashBoxBinding
-import com.mkk.ru.domain.model.SubdivisionModel
-import com.mkk.ru.extension.addFragment
 import com.mkk.ru.extension.launchWhenStarted
-import com.mkk.ru.extension.mapToListString
+import com.mkk.ru.extension.replaceFragment
 import com.mkk.ru.extension.safeOnClickListener
 import com.mkk.ru.extension.showSnackbar
 import com.mkk.ru.presentation.base.BaseFragment
@@ -56,7 +54,7 @@ class RegistrationCashBoxFragment : BaseFragment<RegistrationCashBoxViewModel>()
                 showSnackbar(showSnackBar)
             }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
             openRequestAcceptanceFragmentFlow.onEach {
-                addFragment<ClaimStatusFragment>(R.id.container)
+                replaceFragment<ClaimStatusFragment>(R.id.container)
             }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
             subdivisionsFlow.onEach { subdivisions ->
                 setSubdivision(subdivisions)

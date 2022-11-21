@@ -8,8 +8,8 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.mkk.ru.R
 import com.mkk.ru.databinding.FragmentClaimStatusBinding
-import com.mkk.ru.extension.addFragment
 import com.mkk.ru.extension.launchWhenStarted
+import com.mkk.ru.extension.replaceFragment
 import com.mkk.ru.extension.safeOnClickListener
 import com.mkk.ru.extension.showDialog
 import com.mkk.ru.presentation.base.BaseFragment
@@ -53,7 +53,7 @@ class ClaimStatusFragment : BaseFragment<ClaimStatusViewModel>() {
                 binding.tvLastUpdateClaim.text = getString(R.string.claim_status_date, currentDate)
             }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
             openRegistrationRefusalFragment.onEach {
-                addFragment<RegistrationRefusalFragment>(R.id.container)
+                replaceFragment<RegistrationRefusalFragment>(R.id.container)
             }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
             showDialogFlow.onEach {
                 showSuccessDialog()
@@ -66,7 +66,7 @@ class ClaimStatusFragment : BaseFragment<ClaimStatusViewModel>() {
             title = R.string.dialog_success_registration_title,
             message = R.string.dialog_success_registration_description,
             positiveButton = R.string.dialog_next_button,
-            onClickPositiveButton = { addFragment<RegistrationPersonalAccountFragment>(R.id.container) }
+            onClickPositiveButton = { replaceFragment<RegistrationPersonalAccountFragment>(R.id.container) }
         )
     }
 
