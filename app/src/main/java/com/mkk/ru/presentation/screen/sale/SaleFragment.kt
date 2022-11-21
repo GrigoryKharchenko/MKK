@@ -33,11 +33,11 @@ class SaleFragment : BaseFragment<SaleViewModel>() {
             btnAddProduct.safeOnClickListener {
                 addFragment<AddProductFragment>(R.id.container)
             }
-            toolBar.setNavigationOnClickListener { backMenuFragment() }
+            toolBar.setNavigationOnClickListener { goBack() }
         }
     }
 
-    private fun backMenuFragment() {
+    private fun goBack() {
         parentFragmentManager.popBackStack()
     }
 

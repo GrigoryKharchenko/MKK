@@ -47,9 +47,9 @@ class AddProductFragment : BaseFragment<AddProductViewModel>() {
             etAmount.doAfterTextChanged { amount ->
                 viewModel.calculateSum(price = etPrice.text.toString(), amount = amount.toString())
             }
-            btnAddCheck.text = getString(R.string.add_product_add_check, "0.0")
+            btnAddCheck.text = getString(R.string.add_product_add_check, INIT_SUM)
             tvUnits.setAdapter(unitsAdapter)
-            toolBar.setNavigationOnClickListener { backSaleFragment() }
+            toolBar.setNavigationOnClickListener { goBack() }
             tvUnits.setOnItemClickListener { _, _, position, _ ->
                 viewModel.setSelectedUnit(position)
             }
@@ -61,26 +61,40 @@ class AddProductFragment : BaseFragment<AddProductViewModel>() {
             calculateFlow.onEach { sum ->
                 binding.btnAddCheck.text = getString(R.string.add_product_add_check, sum)
             }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
-            selectedUnitFlow.onEach {
-                binding.tvUnits.setText(getString(it.unitsResId), false)
-                binding.tilPrice.hint = getString(it.priceResId)
-                binding.tilAmount.hint = getString(it.amountResId)
+            selectedUnitFlow.onEach { typeUnits ->
+                processingSelectedUnitFlow(typeUnits)
             }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
-            unitsFlow.onEach {
-                unitsAdapter.clear()
-                unitsAdapter.addAll(it.map { unit ->
-                    getString(unit.unitsResId)
-                })
+            unitsFlow.onEach { listTypeUnits ->
+                processingUnitsFlow(listTypeUnits)
             }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
         }
     }
 
-    private fun backSaleFragment() {
+    private fun processingSelectedUnitFlow(typeUnits: TypeUnits) {
+        with(binding) {
+            tvUnits.setText(getString(typeUnits.unitsResId), false)
+            tilPrice.hint = getString(typeUnits.priceResId)
+            tilAmount.hint = getString(typeUnits.amountResId)
+        }
+    }
+
+    private fun processingUnitsFlow(listTypeUnits: List<TypeUnits>) {
+        unitsAdapter.clear()
+        unitsAdapter.addAll(listTypeUnits.map { unit ->
+            getString(unit.unitsResId)
+        })
+    }
+
+    private fun goBack() {
         parentFragmentManager.popBackStack()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    companion object {
+        const val INIT_SUM = "0.0"
     }
 }
