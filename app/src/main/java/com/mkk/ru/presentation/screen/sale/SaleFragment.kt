@@ -6,8 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import com.mkk.ru.R
 import com.mkk.ru.databinding.FragmentSaleBinding
+import com.mkk.ru.extension.addFragment
+import com.mkk.ru.extension.safeOnClickListener
 import com.mkk.ru.extension.setStatusBar
 import com.mkk.ru.presentation.base.BaseFragment
+import com.mkk.ru.presentation.screen.plusproduct.AddProductFragment
 
 class SaleFragment : BaseFragment<SaleViewModel>() {
 
@@ -26,6 +29,16 @@ class SaleFragment : BaseFragment<SaleViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setStatusBar(R.color.dark_green)
+        with(binding) {
+            btnAddProduct.safeOnClickListener {
+                addFragment<AddProductFragment>(R.id.container, SaleFragment::class.java.simpleName)
+            }
+            toolBar.setNavigationOnClickListener { backSaleFragment() }
+        }
+    }
+
+    private fun backSaleFragment() {
+        parentFragmentManager.popBackStack()
     }
 
     override fun onDestroyView() {

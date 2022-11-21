@@ -20,5 +20,6 @@
     <color name="green">#6FB450</color>
     <color name="dark_green">#5D884B</color>
     <color name="orange">#FF5C16</color>
+    <color name="dark_orange">#B6491A</color>
     <color name="light_gray">#CBC9C9</color>
 </resources>

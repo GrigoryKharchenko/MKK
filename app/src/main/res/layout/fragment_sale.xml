@@ -66,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_8"
         android:layout_marginEnd="@dimen/dp_16"
-        app:iconCurrency="@drawable/ic_currency"
+        app:iconCurrency="@drawable/ic_currency_white"
         app:layout_constraintBottom_toBottomOf="@+id/btnAddProduct"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btnAddProduct"
