@@ -2,7 +2,6 @@ package com.mkk.ru.di.module
 
 import com.mkk.ru.presentation.screen.claimstatus.ClaimStatusFragment
 import com.mkk.ru.presentation.screen.menu.MenuFragment
-import com.mkk.ru.presentation.screen.plusproduct.AddProductFragment
 import com.mkk.ru.presentation.screen.registrationcashbox.RegistrationCashBoxFragment
 import com.mkk.ru.presentation.screen.registrationpersonalaccount.RegistrationPersonalAccountFragment
 import com.mkk.ru.presentation.screen.registrationrefusal.RegistrationRefusalFragment
@@ -34,7 +33,4 @@ interface FragmentModule {
 
     @ContributesAndroidInjector
     fun bindSaleFragment(): SaleFragment
-
-    @ContributesAndroidInjector
-    fun bindAddProductFragment(): AddProductFragment
 }

@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import com.mkk.ru.di.ViewModelKey
 import com.mkk.ru.presentation.screen.claimstatus.ClaimStatusViewModel
 import com.mkk.ru.presentation.screen.menu.MenuViewModel
-import com.mkk.ru.presentation.screen.plusproduct.AddProductViewModel
 import com.mkk.ru.presentation.screen.registrationcashbox.RegistrationCashBoxViewModel
 import com.mkk.ru.presentation.screen.registrationpersonalaccount.RegistrationPersonalAccountViewModel
 import com.mkk.ru.presentation.screen.registrationrefusal.RegistrationRefusalViewModel
@@ -51,9 +50,4 @@ interface ViewModelModule {
     @IntoMap
     @ViewModelKey(SaleViewModel::class)
     fun bindSaleViewModel(viewModel: SaleViewModel): ViewModel
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(AddProductViewModel::class)
-    fun bindAddProductViewModel(viewModel: AddProductViewModel): ViewModel
 }

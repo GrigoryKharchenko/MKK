@@ -25,10 +25,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_4"
-        android:src="@drawable/ic_currency_white"
-        app:layout_constraintBottom_toBottomOf="@id/tvAmount"
+        android:src="@drawable/ic_currency"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAmount"
         app:layout_constraintStart_toEndOf="@id/tvAmount"
-        app:layout_constraintTop_toTopOf="@id/tvAmount" />
+        app:layout_constraintTop_toTopOf="@+id/tvAmount" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvDescription"
