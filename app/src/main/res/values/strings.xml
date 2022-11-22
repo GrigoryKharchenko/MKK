@@ -120,7 +120,7 @@
     <string name="add_product_amount_kg">Вес, г</string>
     <string name="add_product_code_marking">Код маркировки</string>
     <string name="add_product_code_product">Код товара</string>
-    <string name="add_product_add_check">Добавить к чеку %s</string>
+    <string name="add_product_add_check">Добавить к чеку %.1f</string>
     <string name="add_product_undefine_units">Любая</string>
     <string name="add_product_undefine_price">Укажите цену</string>
     <string name="add_product_undefine_amount">Укажите вес</string>

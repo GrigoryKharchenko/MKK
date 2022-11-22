@@ -4,18 +4,22 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.mkk.ru.R
 import com.mkk.ru.databinding.FragmentMenuBinding
 import com.mkk.ru.databinding.MenuDialogBinding
+import com.mkk.ru.extension.addFragment
 import com.mkk.ru.extension.isValidFullName
 import com.mkk.ru.extension.launchWhenStarted
 import com.mkk.ru.extension.safeOnClickListener
+import com.mkk.ru.extension.setStatusBarColor
 import com.mkk.ru.extension.showDialog
 import com.mkk.ru.extension.showSnackbar
 import com.mkk.ru.presentation.base.BaseFragment
+import com.mkk.ru.presentation.screen.sale.SaleFragment
 import kotlinx.coroutines.flow.onEach
 
 class MenuFragment : BaseFragment<MenuViewModel>() {
@@ -41,7 +45,11 @@ class MenuFragment : BaseFragment<MenuViewModel>() {
             btnCloseShift.safeOnClickListener {
                 showCloseShiftDialog()
             }
+            btnSale.safeOnClickListener {
+                addFragment<SaleFragment>(R.id.container)
+            }
         }
+        setStatusBarColor(R.color.teal_basic)
         viewModel.viewEffectsFlow.onEach(::handleViewEffect)
             .launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
     }
@@ -50,6 +58,7 @@ class MenuFragment : BaseFragment<MenuViewModel>() {
         when (viewEffects) {
             is MenuViewEffects.ChangeShift -> {
                 binding.groupBtnOpenShift.isVisible = viewEffects.isOpenedShift
+                binding.btnOpenShift.isGone = viewEffects.isOpenedShift
             }
         }
     }

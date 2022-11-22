@@ -60,7 +60,7 @@ class RegistrationCashBoxViewModel @Inject constructor(
                 dislocationTax.isEmpty() -> _showSnackbarFlow.emit(R.string.error_dislocation_tax)
                 taxMode.isEmpty() -> _showSnackbarFlow.emit(R.string.error_tax_mode)
                 typeAction.isEmpty() -> _showSnackbarFlow.emit(R.string.error_type_action)
-                contactNumber.length < MAX_LENGTH_PHONE_NUMBER -> _showSnackbarFlow.emit(R.string.error_type_object)
+                contactNumber.length < MAX_LENGTH_PHONE_NUMBER -> _showSnackbarFlow.emit(R.string.error_contact_number)
                 typeObject.isEmpty() -> _showSnackbarFlow.emit(R.string.error_type_object)
                 nameObject.isEmpty() -> _showSnackbarFlow.emit(R.string.error_name_object)
                 addressObject.isEmpty() -> _showSnackbarFlow.emit(R.string.error_address_object)

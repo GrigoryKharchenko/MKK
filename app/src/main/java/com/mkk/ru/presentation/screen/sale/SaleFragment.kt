@@ -8,7 +8,7 @@ import com.mkk.ru.R
 import com.mkk.ru.databinding.FragmentSaleBinding
 import com.mkk.ru.extension.addFragment
 import com.mkk.ru.extension.safeOnClickListener
-import com.mkk.ru.extension.setStatusBar
+import com.mkk.ru.extension.setStatusBarColor
 import com.mkk.ru.presentation.base.BaseFragment
 import com.mkk.ru.presentation.screen.plusproduct.AddProductFragment
 
@@ -28,16 +28,16 @@ class SaleFragment : BaseFragment<SaleViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setStatusBar(R.color.dark_green)
+        setStatusBarColor(R.color.dark_green)
         with(binding) {
             btnAddProduct.safeOnClickListener {
-                addFragment<AddProductFragment>(R.id.container, SaleFragment::class.java.simpleName)
+                addFragment<AddProductFragment>(R.id.container)
             }
-            toolBar.setNavigationOnClickListener { backSaleFragment() }
+            toolBar.setNavigationOnClickListener { goBack() }
         }
     }
 
-    private fun backSaleFragment() {
+    private fun goBack() {
         parentFragmentManager.popBackStack()
     }
 

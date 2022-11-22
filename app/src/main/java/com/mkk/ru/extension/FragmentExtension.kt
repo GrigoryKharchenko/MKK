@@ -48,7 +48,7 @@ fun Fragment.showDialog(
         }
         .show()
 
-fun Fragment.setStatusBar(@ColorRes intRes: Int) {
+fun Fragment.setStatusBarColor(@ColorRes intRes: Int) {
     activity?.window?.statusBarColor = requireContext().getCompatColor(intRes)
 }
 

@@ -9,8 +9,8 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
 import com.mkk.ru.R
 import com.mkk.ru.databinding.FragmentRegistrationInPersonalAccountBinding
-import com.mkk.ru.extension.addFragment
 import com.mkk.ru.extension.launchWhenStarted
+import com.mkk.ru.extension.replaceFragment
 import com.mkk.ru.extension.safeOnClickListener
 import com.mkk.ru.extension.showDialog
 import com.mkk.ru.presentation.base.BaseFragment
@@ -76,7 +76,7 @@ class RegistrationPersonalAccountFragment : BaseFragment<RegistrationPersonalAcc
             message = R.string.dialog_success_registration_in_personal_account_description,
             positiveButton = R.string.dialog_next_button,
             onClickPositiveButton = {
-                addFragment<MenuFragment>(R.id.container)
+                replaceFragment<MenuFragment>(R.id.container)
             }
         )
     }
