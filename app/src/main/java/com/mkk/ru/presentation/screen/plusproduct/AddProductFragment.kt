@@ -55,7 +55,7 @@ class AddProductFragment : BaseFragment<AddProductViewModel>() {
                 viewModel.setSelectedUnit(position)
             }
             btnAddCheck.setOnClickListener {
-                viewModel.setError(
+                viewModel.setErrors(
                     etProduct.text.toString(),
                     etPrice.text.toString(),
                     etAmount.text.toString(),
@@ -113,40 +113,16 @@ class AddProductFragment : BaseFragment<AddProductViewModel>() {
     private fun hideError() {
         with(binding) {
             etPrice.setOnFocusChangeListener { _, _ ->
-                viewModel.setError(
-                    etProduct.text.toString(),
-                    etPrice.text.toString(),
-                    etAmount.text.toString(),
-                    etCodeProduct.text.toString()
-                )
-                tilPrice.error = null
+                viewModel.checkPrice()
             }
             etProduct.setOnFocusChangeListener { _, _ ->
-                viewModel.setError(
-                    etProduct.text.toString(),
-                    etPrice.text.toString(),
-                    etAmount.text.toString(),
-                    etCodeProduct.text.toString()
-                )
-                tilProduct.error = null
+                viewModel.checkProduct()
             }
             etAmount.setOnFocusChangeListener { _, _ ->
-                viewModel.setError(
-                    etProduct.text.toString(),
-                    etPrice.text.toString(),
-                    etAmount.text.toString(),
-                    etCodeProduct.text.toString()
-                )
-                tilAmount.error = null
+                viewModel.checkAmount()
             }
             etCodeProduct.setOnFocusChangeListener { _, _ ->
-                viewModel.setError(
-                    etProduct.text.toString(),
-                    etPrice.text.toString(),
-                    etAmount.text.toString(),
-                    etCodeProduct.text.toString()
-                )
-                tilCodeProduct.error = null
+                viewModel.checkCodeProduct()
             }
         }
     }
@@ -157,6 +133,6 @@ class AddProductFragment : BaseFragment<AddProductViewModel>() {
     }
 
     companion object {
-        const val INIT_SUM: Double = 0.0
+        const val INIT_SUM = 0.0
     }
 }

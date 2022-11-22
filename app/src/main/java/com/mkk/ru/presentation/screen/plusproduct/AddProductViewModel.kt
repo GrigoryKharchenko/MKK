@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -21,8 +22,8 @@ class AddProductViewModel @Inject constructor() : ViewModel() {
     private val _unitsFlow = MutableStateFlow(TypeUnits.values().toList())
     val unitsFlow = _unitsFlow.asStateFlow()
 
-    private val _errorFlow = MutableSharedFlow<ErrorValidation>(replay = 1)
-    val errorFlow = _errorFlow.asSharedFlow()
+    private val _errorFlow = MutableStateFlow(ErrorValidation())
+    val errorFlow = _errorFlow.asStateFlow()
 
     fun calculateSum(price: String?, amount: String?) {
         viewModelScope.launch {
@@ -38,7 +39,39 @@ class AddProductViewModel @Inject constructor() : ViewModel() {
         }
     }
 
-    fun setError(
+    fun checkProduct() {
+        viewModelScope.launch {
+            _errorFlow.update {
+                it.copy(errorProduct = null)
+            }
+        }
+    }
+
+    fun checkPrice() {
+        viewModelScope.launch {
+            _errorFlow.update {
+                it.copy(errorPrice = null)
+            }
+        }
+    }
+
+    fun checkAmount() {
+        viewModelScope.launch {
+            _errorFlow.update {
+                it.copy(errorAmount = null)
+            }
+        }
+    }
+
+    fun checkCodeProduct() {
+        viewModelScope.launch {
+            _errorFlow.update {
+                it.copy(errorCodeProduct = null)
+            }
+        }
+    }
+
+    fun setErrors(
         product: String,
         price: String,
         amount: String,
