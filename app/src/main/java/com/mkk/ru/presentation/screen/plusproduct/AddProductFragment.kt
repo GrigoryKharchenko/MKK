@@ -95,6 +95,6 @@ class AddProductFragment : BaseFragment<AddProductViewModel>() {
     }
 
     companion object {
-        const val INIT_SUM = "0.0"
+        const val INIT_SUM: Double = 0.0
     }
 }
