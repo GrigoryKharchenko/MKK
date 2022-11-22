@@ -36,6 +36,7 @@ class AddProductFragment : BaseFragment<AddProductViewModel>() {
         super.onViewCreated(view, savedInstanceState)
         initBinding()
         initViewModel()
+        hideError()
         setStatusBarColor(R.color.dark_orange)
     }
 
@@ -53,6 +54,14 @@ class AddProductFragment : BaseFragment<AddProductViewModel>() {
             tvUnits.setOnItemClickListener { _, _, position, _ ->
                 viewModel.setSelectedUnit(position)
             }
+            btnAddCheck.setOnClickListener {
+                viewModel.setError(
+                    etProduct.text.toString(),
+                    etPrice.text.toString(),
+                    etAmount.text.toString(),
+                    etCodeProduct.text.toString()
+                )
+            }
         }
     }
 
@@ -66,6 +75,9 @@ class AddProductFragment : BaseFragment<AddProductViewModel>() {
             }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
             unitsFlow.onEach { listTypeUnits ->
                 processingUnitsFlow(listTypeUnits)
+            }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
+            errorFlow.onEach { error ->
+                checkValidation(error)
             }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
         }
     }
@@ -87,6 +99,56 @@ class AddProductFragment : BaseFragment<AddProductViewModel>() {
 
     private fun goBack() {
         parentFragmentManager.popBackStack()
+    }
+
+    private fun checkValidation(error: ErrorValidation) {
+        with(binding) {
+            tilProduct.error = error.errorProduct?.let { getString(it) }
+            tilPrice.error = error.errorPrice?.let { getString(it) }
+            tilAmount.error = error.errorAmount?.let { getString(it) }
+            tilCodeProduct.error = error.errorCodeProduct?.let { getString(it) }
+        }
+    }
+
+    private fun hideError() {
+        with(binding) {
+            etPrice.setOnFocusChangeListener { _, _ ->
+                viewModel.setError(
+                    etProduct.text.toString(),
+                    etPrice.text.toString(),
+                    etAmount.text.toString(),
+                    etCodeProduct.text.toString()
+                )
+                tilPrice.error = null
+            }
+            etProduct.setOnFocusChangeListener { _, _ ->
+                viewModel.setError(
+                    etProduct.text.toString(),
+                    etPrice.text.toString(),
+                    etAmount.text.toString(),
+                    etCodeProduct.text.toString()
+                )
+                tilProduct.error = null
+            }
+            etAmount.setOnFocusChangeListener { _, _ ->
+                viewModel.setError(
+                    etProduct.text.toString(),
+                    etPrice.text.toString(),
+                    etAmount.text.toString(),
+                    etCodeProduct.text.toString()
+                )
+                tilAmount.error = null
+            }
+            etCodeProduct.setOnFocusChangeListener { _, _ ->
+                viewModel.setError(
+                    etProduct.text.toString(),
+                    etPrice.text.toString(),
+                    etAmount.text.toString(),
+                    etCodeProduct.text.toString()
+                )
+                tilCodeProduct.error = null
+            }
+        }
     }
 
     override fun onDestroyView() {
