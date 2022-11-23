@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     style="@style/WhiteBackgroundLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -22,6 +23,98 @@
             app:navigationIcon="@drawable/ic_arrow_back"
             app:title="@string/menu_sale" />
     </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupListProduct"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        app:constraint_referenced_ids="rvListProduct,llLayout,ivDottedLine,tvGeneralPrice,tvSum" />
+
+    <LinearLayout
+        android:id="@+id/llLayout"
+        style="@style/WaterBackgroundLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBar">
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/Text.DarkGray.12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_weight="8"
+            android:text="@string/sale_product_code" />
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/Text.DarkGray.12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/sale_amount" />
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/Text.DarkGray.12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_8"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/sale_price_product" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvListProduct"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/ivDottedLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llLayout"
+        tools:listitem="@layout/item_product" />
+
+    <ImageView
+        android:id="@+id/ivDottedLine"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_dotted_line"
+        app:layout_constraintBottom_toTopOf="@id/tvGeneralPrice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvGeneralPrice"
+        style="@style/Text.Gray.14"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginBottom="@dimen/dp_16"
+        android:text="@string/sale_title_general_price"
+        app:layout_constraintBottom_toTopOf="@id/btnAddProduct"
+        app:layout_constraintEnd_toStartOf="@id/tvSum"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvSum"
+        style="@style/Text.DarkGray.24"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:drawableEnd="@drawable/ic_currency_dark_gray"
+        android:gravity="end"
+        app:layout_constraintBottom_toBottomOf="@id/tvGeneralPrice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvGeneralPrice"
+        app:layout_constraintTop_toTopOf="@id/tvGeneralPrice"
+        tools:text="6555555 " />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvEmptyProduct"
@@ -67,11 +160,11 @@
         android:layout_marginStart="@dimen/dp_8"
         android:layout_marginEnd="@dimen/dp_16"
         app:iconCurrency="@drawable/ic_currency_white"
-        app:layout_constraintBottom_toBottomOf="@+id/btnAddProduct"
+        app:layout_constraintBottom_toBottomOf="@id/btnAddProduct"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btnAddProduct"
-        app:layout_constraintTop_toTopOf="@+id/btnAddProduct"
+        app:layout_constraintTop_toTopOf="@id/btnAddProduct"
         app:textAmount="@string/sale_init_value"
-        app:textDescription="@string/sale_pay"/>
+        app:textDescription="@string/sale_pay" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

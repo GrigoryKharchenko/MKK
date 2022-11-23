@@ -11,6 +11,7 @@
     <color name="teal_dark">#015559</color>
     <color name="teal_basic">#018A90</color>
     <color name="gray">#666666</color>
+    <color name="dark_gray">#383838</color>
     <color name="red">#F10000</color>
     <color name="gray_alpha_30">#4DA6A6A6</color>
     <color name="emerald">#3F8499</color>
@@ -21,5 +22,6 @@
     <color name="dark_green">#5D884B</color>
     <color name="orange">#FF5C16</color>
     <color name="dark_orange">#B6491A</color>
-    <color name="light_gray">#CBC9C9</color>
+    <color name="light_gray">#A6A6A6</color>
+    <color name="water">#C2E3E4</color>
 </resources>
