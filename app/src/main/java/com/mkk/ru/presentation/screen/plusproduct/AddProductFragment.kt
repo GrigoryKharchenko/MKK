@@ -36,7 +36,6 @@ class AddProductFragment : BaseFragment<AddProductViewModel>() {
         super.onViewCreated(view, savedInstanceState)
         initBinding()
         initViewModel()
-        hideError()
         setStatusBarColor(R.color.dark_orange)
     }
 
@@ -61,6 +60,18 @@ class AddProductFragment : BaseFragment<AddProductViewModel>() {
                     etAmount.text.toString(),
                     etProductCode.text.toString()
                 )
+            }
+            etPrice.setOnFocusChangeListener { _, _ ->
+                viewModel.hidePriceError()
+            }
+            etProduct.setOnFocusChangeListener { _, _ ->
+                viewModel.hideProductError()
+            }
+            etAmount.setOnFocusChangeListener { _, _ ->
+                viewModel.hideAmountError()
+            }
+            etProductCode.setOnFocusChangeListener { _, _ ->
+                viewModel.hideProductCodeError()
             }
         }
     }
@@ -110,29 +121,12 @@ class AddProductFragment : BaseFragment<AddProductViewModel>() {
         }
     }
 
-    private fun hideError() {
-        with(binding) {
-            etPrice.setOnFocusChangeListener { _, _ ->
-                viewModel.hidePriceError()
-            }
-            etProduct.setOnFocusChangeListener { _, _ ->
-                viewModel.hideProductError()
-            }
-            etAmount.setOnFocusChangeListener { _, _ ->
-                viewModel.hideAmountError()
-            }
-            etProductCode.setOnFocusChangeListener { _, _ ->
-                viewModel.hideProductCodeError()
-            }
-        }
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 
     companion object {
-        const val INIT_SUM = 0.0
+        private const val INIT_SUM = 0.0
     }
 }
