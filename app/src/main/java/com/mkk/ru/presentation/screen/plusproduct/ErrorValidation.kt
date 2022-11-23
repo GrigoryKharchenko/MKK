@@ -4,5 +4,5 @@ data class ErrorValidation(
     val errorProduct: Int? = null,
     val errorPrice: Int?= null,
     val errorAmount: Int? = null,
-    val errorCodeProduct: Int? = null,
+    val errorProductCode: Int? = null,
 )

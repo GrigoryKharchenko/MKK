@@ -39,7 +39,7 @@ class AddProductViewModel @Inject constructor() : ViewModel() {
         }
     }
 
-    fun checkProduct() {
+    fun hideProductError() {
         viewModelScope.launch {
             _errorFlow.update {
                 it.copy(errorProduct = null)
@@ -47,7 +47,7 @@ class AddProductViewModel @Inject constructor() : ViewModel() {
         }
     }
 
-    fun checkPrice() {
+    fun hidePriceError() {
         viewModelScope.launch {
             _errorFlow.update {
                 it.copy(errorPrice = null)
@@ -55,7 +55,7 @@ class AddProductViewModel @Inject constructor() : ViewModel() {
         }
     }
 
-    fun checkAmount() {
+    fun hideAmountError() {
         viewModelScope.launch {
             _errorFlow.update {
                 it.copy(errorAmount = null)
@@ -63,10 +63,10 @@ class AddProductViewModel @Inject constructor() : ViewModel() {
         }
     }
 
-    fun checkCodeProduct() {
+    fun hideProductCodeError() {
         viewModelScope.launch {
             _errorFlow.update {
-                it.copy(errorCodeProduct = null)
+                it.copy(errorProductCode = null)
             }
         }
     }
@@ -75,7 +75,7 @@ class AddProductViewModel @Inject constructor() : ViewModel() {
         product: String,
         price: String,
         amount: String,
-        codeProduct: String
+        productCode: String
     ) {
         viewModelScope.launch {
             _errorFlow.emit(
@@ -83,7 +83,7 @@ class AddProductViewModel @Inject constructor() : ViewModel() {
                     if (product.isEmpty()) R.string.add_product_invalid_product else null,
                     if (price.isEmpty()) R.string.add_product_invalid_price else null,
                     if (amount.isEmpty()) R.string.add_product_invalid_amount else null,
-                    if (codeProduct.isEmpty()) R.string.add_product_invalid_code_product else null,
+                    if (productCode.isEmpty()) R.string.add_product_invalid_product_code else null,
                 )
             )
         }

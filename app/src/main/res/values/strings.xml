@@ -118,8 +118,8 @@
     <string name="add_product_amount_piece">Количество, шт.</string>
     <string name="add_product_amount_liter">Обьем, л</string>
     <string name="add_product_amount_kg">Вес, г</string>
-    <string name="add_product_code_marking">Код маркировки</string>
-    <string name="add_product_code_product">Код товара</string>
+    <string name="add_product_marking_code">Код маркировки</string>
+    <string name="add_product_product_code">Код товара</string>
     <string name="add_product_add_check">Добавить к чеку %.1f</string>
     <string name="add_product_undefine_units">Любая</string>
     <string name="add_product_undefine_price">Укажите цену</string>
@@ -128,5 +128,5 @@
     <string name="add_product_invalid_units">Введите единицы измерения</string>
     <string name="add_product_invalid_price">Введите цену</string>
     <string name="add_product_invalid_amount">Введите количество</string>
-    <string name="add_product_invalid_code_product">Введите код товара</string>
+    <string name="add_product_invalid_product_code">Введите код товара</string>
 </resources>

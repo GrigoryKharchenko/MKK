@@ -59,7 +59,7 @@ class AddProductFragment : BaseFragment<AddProductViewModel>() {
                     etProduct.text.toString(),
                     etPrice.text.toString(),
                     etAmount.text.toString(),
-                    etCodeProduct.text.toString()
+                    etProductCode.text.toString()
                 )
             }
         }
@@ -106,23 +106,23 @@ class AddProductFragment : BaseFragment<AddProductViewModel>() {
             tilProduct.error = error.errorProduct?.let { getString(it) }
             tilPrice.error = error.errorPrice?.let { getString(it) }
             tilAmount.error = error.errorAmount?.let { getString(it) }
-            tilCodeProduct.error = error.errorCodeProduct?.let { getString(it) }
+            tilProductCode.error = error.errorProductCode?.let { getString(it) }
         }
     }
 
     private fun hideError() {
         with(binding) {
             etPrice.setOnFocusChangeListener { _, _ ->
-                viewModel.checkPrice()
+                viewModel.hidePriceError()
             }
             etProduct.setOnFocusChangeListener { _, _ ->
-                viewModel.checkProduct()
+                viewModel.hideProductError()
             }
             etAmount.setOnFocusChangeListener { _, _ ->
-                viewModel.checkAmount()
+                viewModel.hideAmountError()
             }
-            etCodeProduct.setOnFocusChangeListener { _, _ ->
-                viewModel.checkCodeProduct()
+            etProductCode.setOnFocusChangeListener { _, _ ->
+                viewModel.hideProductCodeError()
             }
         }
     }
