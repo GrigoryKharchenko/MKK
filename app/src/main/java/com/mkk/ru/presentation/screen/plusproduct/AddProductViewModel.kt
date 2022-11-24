@@ -2,12 +2,13 @@ package com.mkk.ru.presentation.screen.plusproduct
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.mkk.ru.R
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import java.math.RoundingMode
 import javax.inject.Inject
 
 class AddProductViewModel @Inject constructor() : ViewModel() {
@@ -21,6 +22,9 @@ class AddProductViewModel @Inject constructor() : ViewModel() {
     private val _unitsFlow = MutableStateFlow(TypeUnits.values().toList())
     val unitsFlow = _unitsFlow.asStateFlow()
 
+    private val _errorFlow = MutableStateFlow(ErrorValidation())
+    val errorFlow = _errorFlow.asStateFlow()
+
     fun calculateSum(price: String?, amount: String?) {
         viewModelScope.launch {
             val safePrise = price?.toDoubleOrNull() ?: 0.0
@@ -32,6 +36,56 @@ class AddProductViewModel @Inject constructor() : ViewModel() {
     fun setSelectedUnit(position: Int) {
         viewModelScope.launch {
             _selectedUnitFlow.emit(_unitsFlow.value[position])
+        }
+    }
+
+    fun hideProductError() {
+        viewModelScope.launch {
+            _errorFlow.update {
+                it.copy(errorProduct = null)
+            }
+        }
+    }
+
+    fun hidePriceError() {
+        viewModelScope.launch {
+            _errorFlow.update {
+                it.copy(errorPrice = null)
+            }
+        }
+    }
+
+    fun hideAmountError() {
+        viewModelScope.launch {
+            _errorFlow.update {
+                it.copy(errorAmount = null)
+            }
+        }
+    }
+
+    fun hideProductCodeError() {
+        viewModelScope.launch {
+            _errorFlow.update {
+                it.copy(errorProductCode = null)
+            }
+        }
+    }
+
+    fun setErrors(
+        product: String,
+        price: String,
+        amount: String,
+        productCode: String
+    ) {
+        viewModelScope.launch {
+            _errorFlow.emit(
+                ErrorValidation(
+                    if (product.isEmpty()) R.string.add_product_invalid_product else null,
+                    if (price.isEmpty()) R.string.add_product_invalid_price else null,
+                    if (amount.isEmpty()) R.string.add_product_invalid_amount else null,
+                    if (productCode.isEmpty()) R.string.add_product_invalid_product_code else null,
+                )
+            )
         }
     }
 }

@@ -53,6 +53,26 @@ class AddProductFragment : BaseFragment<AddProductViewModel>() {
             tvUnits.setOnItemClickListener { _, _, position, _ ->
                 viewModel.setSelectedUnit(position)
             }
+            btnAddCheck.setOnClickListener {
+                viewModel.setErrors(
+                    etProduct.text.toString(),
+                    etPrice.text.toString(),
+                    etAmount.text.toString(),
+                    etProductCode.text.toString()
+                )
+            }
+            etPrice.setOnFocusChangeListener { _, _ ->
+                viewModel.hidePriceError()
+            }
+            etProduct.setOnFocusChangeListener { _, _ ->
+                viewModel.hideProductError()
+            }
+            etAmount.setOnFocusChangeListener { _, _ ->
+                viewModel.hideAmountError()
+            }
+            etProductCode.setOnFocusChangeListener { _, _ ->
+                viewModel.hideProductCodeError()
+            }
         }
     }
 
@@ -66,6 +86,9 @@ class AddProductFragment : BaseFragment<AddProductViewModel>() {
             }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
             unitsFlow.onEach { listTypeUnits ->
                 processingUnitsFlow(listTypeUnits)
+            }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
+            errorFlow.onEach { error ->
+                checkValidation(error)
             }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
         }
     }
@@ -89,12 +112,21 @@ class AddProductFragment : BaseFragment<AddProductViewModel>() {
         parentFragmentManager.popBackStack()
     }
 
+    private fun checkValidation(error: ErrorValidation) {
+        with(binding) {
+            tilProduct.error = error.errorProduct?.let { getString(it) }
+            tilPrice.error = error.errorPrice?.let { getString(it) }
+            tilAmount.error = error.errorAmount?.let { getString(it) }
+            tilProductCode.error = error.errorProductCode?.let { getString(it) }
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 
     companion object {
-        const val INIT_SUM: Double = 0.0
+        private const val INIT_SUM = 0.0
     }
 }
