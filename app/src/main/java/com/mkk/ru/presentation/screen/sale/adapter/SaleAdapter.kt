@@ -40,7 +40,7 @@ class SaleViewHolder(private val binding: ItemProductBinding) :
 
 class SaleDiffUtil : DiffUtil.ItemCallback<ProductUiModel>() {
     override fun areItemsTheSame(oldItem: ProductUiModel, newItem: ProductUiModel): Boolean =
-        oldItem.id == newItem.id
+        oldItem.productCode == newItem.productCode
 
     override fun areContentsTheSame(oldItem: ProductUiModel, newItem: ProductUiModel): Boolean =
         oldItem == newItem

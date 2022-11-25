@@ -118,18 +118,18 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilCodeProduct"
+                android:id="@+id/tilProductCode"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_28"
-                android:hint="@string/add_product_code_product"
+                android:hint="@string/add_product_product_code"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tilAmount">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etCodeProduct"
+                    android:id="@+id/etProductCode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textCapSentences"
@@ -138,18 +138,18 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilCodeMarking"
+                android:id="@+id/tilMarkingCode"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_28"
-                android:hint="@string/add_product_code_marking"
+                android:hint="@string/add_product_marking_code"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tilCodeProduct">
+                app:layout_constraintTop_toBottomOf="@id/tilProductCode">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etCodeMarking"
+                    android:id="@+id/etMarkingCode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:enabled="false"
