@@ -12,6 +12,7 @@ import com.mkk.ru.extension.launchWhenStarted
 import com.mkk.ru.extension.replaceFragment
 import com.mkk.ru.presentation.base.BaseFragment
 import com.mkk.ru.presentation.screen.menu.MenuFragment
+import com.mkk.ru.presentation.screen.registrationcashbox.RegistrationCashBoxFragment
 import kotlinx.coroutines.flow.onEach
 
 class SplashScreenFragment : BaseFragment<SplashScreenViewModel>() {
@@ -33,7 +34,7 @@ class SplashScreenFragment : BaseFragment<SplashScreenViewModel>() {
         binding.tvVersion.text =
             getString(R.string.splash_screen_fragment_app_version, BuildConfig.VERSION_NAME)
         viewModel.openRegistrationCashBoxFragmentFlow.onEach {
-            replaceFragment<MenuFragment>(R.id.container)
+            replaceFragment<RegistrationCashBoxFragment>(R.id.container)
         }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
     }
 
