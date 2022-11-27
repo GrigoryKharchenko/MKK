@@ -12,19 +12,23 @@ class MenuViewModel @Inject constructor(
     private val preferenceManager: PreferenceManager
 ) : ViewModel() {
 
-    private val _viewEffectsFlow = MutableSharedFlow<MenuViewEffects>()
+    private val _viewEffectsFlow = MutableSharedFlow<MenuViewState>(replay = 1)
     val viewEffectsFlow get() = _viewEffectsFlow.asSharedFlow()
 
     init {
-        viewModelScope.launch {
-            _viewEffectsFlow.emit(MenuViewEffects.ChangeShift(preferenceManager.getStateShift()))
-        }
+        getState()
     }
 
     fun setState(isOpenedShift: Boolean) {
         viewModelScope.launch {
-            _viewEffectsFlow.emit(MenuViewEffects.ChangeShift(isOpenedShift))
+            _viewEffectsFlow.emit(MenuViewState.ChangeShift(isOpenedShift))
             preferenceManager.saveStateShift(isOpenedShift)
+        }
+    }
+
+    private fun getState() {
+        viewModelScope.launch {
+            _viewEffectsFlow.emit(MenuViewState.ChangeShift(preferenceManager.getStateShift()))
         }
     }
 }
