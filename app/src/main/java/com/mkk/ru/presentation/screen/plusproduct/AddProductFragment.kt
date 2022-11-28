@@ -34,12 +34,12 @@ class AddProductFragment : BaseFragment<AddProductViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initBinding()
-        initViewModel()
+        initUi()
+        subscribeToViewModel()
         setStatusBarColor(R.color.dark_orange)
     }
 
-    private fun initBinding() {
+    private fun initUi() {
         with(binding) {
             etPrice.doAfterTextChanged { price ->
                 viewModel.calculateSum(price = price?.toString(), amount = etAmount.text.toString())
@@ -76,7 +76,7 @@ class AddProductFragment : BaseFragment<AddProductViewModel>() {
         }
     }
 
-    private fun initViewModel() {
+    private fun subscribeToViewModel() {
         with(viewModel) {
             calculateFlow.onEach { sum ->
                 binding.btnAddCheck.text = getString(R.string.add_product_add_check, sum)

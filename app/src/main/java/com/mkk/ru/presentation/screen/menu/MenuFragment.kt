@@ -59,23 +59,16 @@ class MenuFragment : BaseFragment<MenuViewModel>() {
 
     private fun subscribeToViewModel() {
         with(viewModel) {
-            stateShiftFlow.onEach(::handleViewState)
+            stateShiftFlow.onEach(::handleShiftState)
                 .launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
         }
     }
 
-    private fun handleViewState(shiftState: Boolean) {
-        when (shiftState) {
-            true -> {
-                binding.groupBtnOpenShift.isVisible = true
-                binding.btnOpenShift.isGone = true
-            }
-            else -> {
-                binding.groupBtnOpenShift.isVisible = false
-                binding.btnOpenShift.isGone = false
-            }
-        }
+    private fun handleShiftState(shiftState: Boolean) {
+        binding.groupBtnOpenShift.isVisible = shiftState
+        binding.btnOpenShift.isGone = shiftState
     }
+
 
     private fun showCloseShiftDialog() {
         showDialog(

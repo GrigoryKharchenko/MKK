@@ -27,6 +27,3 @@ class SaleViewModel @Inject constructor(
         }
     }
 }
-
-
-
