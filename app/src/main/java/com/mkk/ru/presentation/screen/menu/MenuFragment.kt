@@ -59,16 +59,20 @@ class MenuFragment : BaseFragment<MenuViewModel>() {
 
     private fun initViewModel() {
         with(viewModel) {
-            viewEffectsFlow.onEach(::handleViewState)
+            stateShiftFlow.onEach(::handleViewState)
                 .launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
         }
     }
 
-    private fun handleViewState(viewState: MenuViewState) {
-        when (viewState) {
-            is MenuViewState.ChangeShift -> {
-                binding.groupBtnOpenShift.isVisible = viewState.isOpenedShift
-                binding.btnOpenShift.isGone = viewState.isOpenedShift
+    private fun handleViewState(shiftState: Boolean) {
+        when (shiftState) {
+            true -> {
+                binding.groupBtnOpenShift.isVisible = true
+                binding.btnOpenShift.isGone = true
+            }
+            else -> {
+                binding.groupBtnOpenShift.isVisible = false
+                binding.btnOpenShift.isGone = false
             }
         }
     }
@@ -88,7 +92,7 @@ class MenuFragment : BaseFragment<MenuViewModel>() {
             title = R.string.menu_dialog_shift_closed_title,
             message = R.string.menu_dialog_shift_closed_description,
             positiveButton = R.string.dialog_ok_button,
-            onClickPositiveButton = { viewModel.setState(false) },
+            onClickPositiveButton = { viewModel.setStateShift(false) },
         )
     }
 
@@ -100,7 +104,7 @@ class MenuFragment : BaseFragment<MenuViewModel>() {
         bindingDialog.tvNext.setOnClickListener {
             val etNameCashier = bindingDialog.etNameCashier.text.toString()
             if (etNameCashier.isValidFullName()) {
-                viewModel.setState(true)
+                viewModel.setStateShift(true)
                 showSnackbar(R.string.menu_snackbar_open_shift)
                 customDialogBuilder.dismiss()
             } else {
