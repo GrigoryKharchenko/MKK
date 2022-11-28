@@ -55,6 +55,10 @@ class SaleFragment : BaseFragment<SaleViewModel>() {
         with(viewModel) {
             productFlow.onEach(::handleUiState)
                 .launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
+            productCostFlow.onEach {
+                binding.tvSum.text = it.toString()
+                binding.btnAmount.setAmount(it.toString())
+            }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
         }
     }
 

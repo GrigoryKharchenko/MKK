@@ -65,14 +65,18 @@ class MenuFragment : BaseFragment<MenuViewModel>() {
     }
 
     private fun handleViewState(shiftState: Boolean) {
-        when (shiftState) {
-            true -> {
-                binding.groupBtnOpenShift.isVisible = true
-                binding.btnOpenShift.isGone = true
-            }
-            else -> {
-                binding.groupBtnOpenShift.isVisible = false
-                binding.btnOpenShift.isGone = false
+        with(binding) {
+            when (shiftState) {
+                true -> {
+                    groupBtnOpenShift.isVisible = true
+                    btnOpenShift.isGone = true
+                    btnCloseShift.isVisible = true
+                }
+                else -> {
+                    groupBtnOpenShift.isVisible = false
+                    btnOpenShift.isGone = false
+                    btnCloseShift.isVisible = false
+                }
             }
         }
     }

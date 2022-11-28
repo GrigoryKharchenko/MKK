@@ -94,7 +94,7 @@ class AddProductViewModel @Inject constructor(
                         price = price,
                         amount = amount,
                         productCode = productCode,
-                        generalPrice = _calculateFlow.value.toString()
+                        generalPrice = _calculateFlow.value
                     )
                 )
                 _backFlow.emit(Unit)
