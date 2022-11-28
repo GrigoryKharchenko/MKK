@@ -81,15 +81,12 @@ class AddProductFragment : BaseFragment<AddProductViewModel>() {
             calculateFlow.onEach { sum ->
                 binding.btnAddCheck.text = getString(R.string.add_product_add_check, sum)
             }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
-            selectedUnitFlow.onEach { typeUnits ->
-                processingSelectedUnitFlow(typeUnits)
-            }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
-            unitsFlow.onEach { listTypeUnits ->
-                processingUnitsFlow(listTypeUnits)
-            }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
-            errorFlow.onEach { error ->
-                checkValidation(error)
-            }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
+            selectedUnitFlow.onEach(::processingSelectedUnitFlow)
+                .launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
+            unitsFlow.onEach(::processingUnitsFlow)
+                .launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
+            errorFlow.onEach(::checkValidation)
+                .launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
             backFlow.onEach {
                 goBack()
             }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)

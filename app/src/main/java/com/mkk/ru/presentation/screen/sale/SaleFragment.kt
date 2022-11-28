@@ -37,11 +37,11 @@ class SaleFragment : BaseFragment<SaleViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setStatusBarColor(R.color.dark_green)
-        initBinding()
-        initViewModel()
+        initUi()
+        subscribeToViewModel()
     }
 
-    private fun initBinding() {
+    private fun initUi() {
         with(binding) {
             btnAddProduct.safeOnClickListener {
                 addFragment<AddProductFragment>(R.id.container)
@@ -51,11 +51,10 @@ class SaleFragment : BaseFragment<SaleViewModel>() {
         }
     }
 
-    private fun initViewModel() {
+    private fun subscribeToViewModel() {
         with(viewModel) {
-            productFlow.onEach {
-                handleUiState(it)
-            }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
+            productFlow.onEach(::handleUiState)
+                .launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
         }
     }
 

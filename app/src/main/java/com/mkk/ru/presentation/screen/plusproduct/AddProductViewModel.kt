@@ -17,7 +17,7 @@ class AddProductViewModel @Inject constructor(
     private val productsRepository: ProductRepository
 ) : ViewModel() {
 
-    private val _calculateFlow = MutableStateFlow(0.0)
+    private val _calculateFlow = MutableStateFlow(INIT_VALUE)
     val calculateFlow = _calculateFlow.asSharedFlow()
 
     private val _selectedUnitFlow = MutableStateFlow(TypeUnits.UNDEFINE)
@@ -34,8 +34,8 @@ class AddProductViewModel @Inject constructor(
 
     fun calculateSum(price: String?, amount: String?) {
         viewModelScope.launch {
-            val safePrise = price?.toDoubleOrNull() ?: 0.0
-            val safeAmount = amount?.toDoubleOrNull() ?: 0.0
+            val safePrise = price?.toDoubleOrNull() ?: INIT_VALUE
+            val safeAmount = amount?.toDoubleOrNull() ?: INIT_VALUE
             _calculateFlow.emit((safeAmount * safePrise))
         }
     }
@@ -86,7 +86,8 @@ class AddProductViewModel @Inject constructor(
     ) {
         viewModelScope.launch {
             if (productName.isNotEmpty() && price.isNotEmpty()
-                && amount.isNotEmpty() && productCode.isNotEmpty()) {
+                && amount.isNotEmpty() && productCode.isNotEmpty()
+            ) {
                 productsRepository.addProduct(
                     ProductUiModel(
                         product = productName,
@@ -108,6 +109,10 @@ class AddProductViewModel @Inject constructor(
                 )
             }
         }
+    }
+
+    companion object {
+        private const val INIT_VALUE = 0.0
     }
 }
 

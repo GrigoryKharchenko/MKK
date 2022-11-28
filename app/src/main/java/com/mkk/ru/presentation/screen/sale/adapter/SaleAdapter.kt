@@ -1,25 +1,19 @@
 package com.mkk.ru.presentation.screen.sale.adapter
 
-import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.mkk.ru.R
 import com.mkk.ru.databinding.ItemProductBinding
+import com.mkk.ru.extension.inflate
 import com.mkk.ru.presentation.screen.sale.ProductUiModel
 
 class SaleAdapter :
     ListAdapter<ProductUiModel, SaleViewHolder>(SaleDiffUtil()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SaleViewHolder =
-        SaleViewHolder(
-            ItemProductBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
-            )
-        )
+        SaleViewHolder(ItemProductBinding.bind(parent.inflate(R.layout.item_product)))
 
     override fun onBindViewHolder(holder: SaleViewHolder, position: Int) =
         holder.bind(getItem(position))

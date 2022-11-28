@@ -83,7 +83,7 @@
     <ImageView
         android:id="@+id/ivDottedLine"
         android:layout_width="0dp"
-        android:layout_height="10dp"
+        android:layout_height="@dimen/dp_10"
         android:scaleType="fitXY"
         android:src="@drawable/ic_dotted_line"
         app:layout_constraintBottom_toTopOf="@id/tvGeneralPrice"

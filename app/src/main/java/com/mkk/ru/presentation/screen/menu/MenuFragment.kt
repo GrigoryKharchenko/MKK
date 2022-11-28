@@ -38,12 +38,12 @@ class MenuFragment : BaseFragment<MenuViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initBinding()
-        initViewModel()
+        initUi()
+        subscribeToViewModel()
         setStatusBarColor(R.color.teal_basic)
     }
 
-    private fun initBinding() {
+    private fun initUi() {
         with(binding) {
             btnOpenShift.safeOnClickListener {
                 showNameCashierDialog()
@@ -57,7 +57,7 @@ class MenuFragment : BaseFragment<MenuViewModel>() {
         }
     }
 
-    private fun initViewModel() {
+    private fun subscribeToViewModel() {
         with(viewModel) {
             stateShiftFlow.onEach(::handleViewState)
                 .launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)

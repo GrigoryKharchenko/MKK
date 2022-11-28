@@ -30,7 +30,7 @@ class PreferenceManagerImpl @Inject constructor(
         preferences[stateShiftKey] ?: false
     }
 
-    override suspend fun getLastDate(): String = currentDate.first()
+    override suspend fun getCurrentDate(): String = currentDate.first()
 
     override suspend fun saveCurrentDate(currentDate: String) {
         context.dataStore.edit { date ->
