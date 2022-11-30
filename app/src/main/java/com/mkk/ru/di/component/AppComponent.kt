@@ -1,4 +1,4 @@
-package com.mkk.ru.di
+package com.mkk.ru.di.component
 
 import android.content.Context
 import com.mkk.ru.MkkApp
@@ -12,8 +12,9 @@ import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
+import javax.inject.Singleton
 
-@FragmentScope
+@Singleton
 @Component(
     modules = [
         AndroidSupportInjectionModule::class,

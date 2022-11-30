@@ -1,12 +1,15 @@
 package com.mkk.ru.presentation.screen.sale
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.mkk.ru.domain.repository.ProductRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import javax.inject.Provider
+
 
 class SaleViewModel @Inject constructor(
     private val productRepository: ProductRepository

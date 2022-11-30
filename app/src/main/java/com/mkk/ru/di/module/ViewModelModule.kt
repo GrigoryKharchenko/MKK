@@ -8,7 +8,6 @@ import com.mkk.ru.presentation.screen.plusproduct.AddProductViewModel
 import com.mkk.ru.presentation.screen.registrationcashbox.RegistrationCashBoxViewModel
 import com.mkk.ru.presentation.screen.registrationpersonalaccount.RegistrationPersonalAccountViewModel
 import com.mkk.ru.presentation.screen.registrationrefusal.RegistrationRefusalViewModel
-import com.mkk.ru.presentation.screen.sale.SaleViewModel
 import com.mkk.ru.presentation.screen.splashscreen.SplashScreenViewModel
 import dagger.Binds
 import dagger.Module
@@ -46,14 +45,4 @@ interface ViewModelModule {
     @IntoMap
     @ViewModelKey(MenuViewModel::class)
     fun bindMenuViewModel(viewModel: MenuViewModel): ViewModel
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(SaleViewModel::class)
-    fun bindSaleViewModel(viewModel: SaleViewModel): ViewModel
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(AddProductViewModel::class)
-    fun bindAddProductViewModel(viewModel: AddProductViewModel): ViewModel
 }

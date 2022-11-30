@@ -1,6 +1,7 @@
 package com.mkk.ru.presentation.screen.plusproduct
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.mkk.ru.R
 import com.mkk.ru.domain.repository.ProductRepository
@@ -12,6 +13,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import javax.inject.Provider
 
 class AddProductViewModel @Inject constructor(
     private val productsRepository: ProductRepository

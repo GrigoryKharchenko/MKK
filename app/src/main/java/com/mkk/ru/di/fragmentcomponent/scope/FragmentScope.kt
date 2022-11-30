@@ -1,4 +1,4 @@
-package com.mkk.ru.di
+package com.mkk.ru.di.fragmentcomponent.scope
 
 import javax.inject.Scope
 

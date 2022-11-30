@@ -6,10 +6,10 @@ import com.mkk.ru.presentation.screen.plusproduct.AddProductFragment
 import com.mkk.ru.presentation.screen.registrationcashbox.RegistrationCashBoxFragment
 import com.mkk.ru.presentation.screen.registrationpersonalaccount.RegistrationPersonalAccountFragment
 import com.mkk.ru.presentation.screen.registrationrefusal.RegistrationRefusalFragment
-import com.mkk.ru.presentation.screen.sale.SaleFragment
 import com.mkk.ru.presentation.screen.splashscreen.SplashScreenFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
+import javax.inject.Singleton
 
 @Module
 interface FragmentModule {
@@ -31,10 +31,7 @@ interface FragmentModule {
 
     @ContributesAndroidInjector
     fun bindMenuFragment(): MenuFragment
-
-    @ContributesAndroidInjector
-    fun bindSaleFragment(): SaleFragment
-
-    @ContributesAndroidInjector
-    fun bindAddProductFragment(): AddProductFragment
+//
+//    @ContributesAndroidInjector
+//    fun bindAddProductFragment(): AddProductFragment
 }

@@ -1,26 +1,64 @@
 package com.mkk.ru.presentation.screen.plusproduct
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.core.widget.doAfterTextChanged
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.mkk.ru.R
+import com.mkk.ru.appComp
 import com.mkk.ru.databinding.FragmentAddProductBinding
+import com.mkk.ru.di.ViewModelFactory
+import com.mkk.ru.di.component.DaggerFragmentComponent
 import com.mkk.ru.extension.launchWhenStarted
 import com.mkk.ru.extension.setStatusBarColor
-import com.mkk.ru.presentation.base.BaseFragment
+import com.mkk.ru.presentation.screen.sale.SaleViewModel
+import dagger.Lazy
 import kotlinx.coroutines.flow.onEach
+import java.lang.reflect.ParameterizedType
+import javax.inject.Inject
 
-class AddProductFragment : BaseFragment<AddProductViewModel>() {
+class AddProductFragment : Fragment() {
 
     private var _binding: FragmentAddProductBinding? = null
     private val binding get() = _binding!!
 
     private val unitsAdapter by lazy {
         ArrayAdapter(requireContext(), R.layout.bottom_menu, mutableListOf<String>())
+    }
+//    @Inject
+//    lateinit var defaultViewModelFactory: ViewModelFactory
+//
+//    val viewModel by lazy {
+//        ViewModelProvider(this, viewModelFactory)
+//            .get(getViewModelClass())
+//    }
+//
+//    val viewModelFactory: ViewModelProvider.Factory
+//        get() = defaultViewModelFactory
+//
+//    @Suppress("UNCHECKED_CAST")
+//    private fun getViewModelClass() =
+//        (javaClass.genericSuperclass as ParameterizedType)
+//            .actualTypeArguments[0] as Class<AddProductViewModel>
+//    @Inject
+//    lateinit var addProductViewModelFactory: Lazy<AddProductViewModel.Factory>
+//
+//    private val addProductViewModel: AddProductViewModel by viewModels {
+//        addProductViewModelFactory.get()
+//    }
+
+    override fun onAttach(context: Context) {
+        DaggerFragmentComponent.factory()
+            .create(context.appComp)
+            .inject(this@AddProductFragment)
+        super.onAttach(context)
     }
 
     override fun onCreateView(
