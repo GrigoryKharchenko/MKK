@@ -114,6 +114,8 @@
     <string name="sale_item_amount">%s</string>
     <string name="sale_item_price">&#160;x %s</string>
     <string name="sale_item_general_price">%s</string>
+    <string name="sale_close_dialog_title">Закрыть экран</string>
+    <string name="sale_close_dialog_description">Вы точно хотите закрыть экран?</string>
 
     <!-- AddProductFragment -->
     <string name="add_product_title">Добавить товар</string>

@@ -7,4 +7,5 @@ interface ProductRepository {
     val productFlow: SharedFlow<List<ProductUiModel>>
     suspend fun addProduct(product: ProductUiModel)
     suspend fun deleteProduct(product: ProductUiModel)
+    fun clearProducts()
 }

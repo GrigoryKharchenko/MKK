@@ -33,6 +33,11 @@ class SaleViewModel @Inject constructor(
         }
     }
 
+    override fun onCleared() {
+        productRepository.clearProducts()
+        super.onCleared()
+    }
+
     companion object {
         private const val INIT_VALUE = 0.0
     }
