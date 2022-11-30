@@ -5,5 +5,5 @@ data class ProductUiModel(
     val price: String,
     val amount: String,
     val productCode: String,
-    val generalPrice: String,
+    val generalPrice: Double,
 )

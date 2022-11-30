@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
@@ -13,6 +14,7 @@ import com.mkk.ru.extension.addFragment
 import com.mkk.ru.extension.launchWhenStarted
 import com.mkk.ru.extension.safeOnClickListener
 import com.mkk.ru.extension.setStatusBarColor
+import com.mkk.ru.extension.showDialog
 import com.mkk.ru.presentation.base.BaseFragment
 import com.mkk.ru.presentation.screen.plusproduct.AddProductFragment
 import com.mkk.ru.presentation.screen.sale.adapter.SaleAdapter
@@ -39,6 +41,9 @@ class SaleFragment : BaseFragment<SaleViewModel>() {
         setStatusBarColor(R.color.dark_green)
         initUi()
         subscribeToViewModel()
+        requireActivity().onBackPressedDispatcher.addCallback {
+            goBack()
+        }
     }
 
     private fun initUi() {
@@ -55,6 +60,10 @@ class SaleFragment : BaseFragment<SaleViewModel>() {
         with(viewModel) {
             productFlow.onEach(::handleUiState)
                 .launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
+            productCostFlow.onEach {
+                binding.tvSum.text = it.toString()
+                binding.btnAmount.setAmount(it.toString())
+            }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
         }
     }
 
@@ -68,7 +77,11 @@ class SaleFragment : BaseFragment<SaleViewModel>() {
     }
 
     private fun goBack() {
-        parentFragmentManager.popBackStack()
+        showDialog(title = R.string.sale_close_dialog_title,
+            message = R.string.sale_close_dialog_description,
+            positiveButton = R.string.dialog_ok_button,
+            negativeButton = R.string.dialog_cancel_button,
+            onClickPositiveButton = { parentFragmentManager.popBackStack() })
     }
 
     override fun onDestroyView() {

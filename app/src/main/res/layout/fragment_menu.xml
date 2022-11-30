@@ -21,96 +21,108 @@
             app:title="@string/menu_toolbar_title" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/groupBtnOpenShift"
+    <ScrollView
+        android:id="@+id/scroll"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:visibility="gone"
-        app:constraint_referenced_ids="btnSale,btnCloseShift,btnGenerateReport" />
-
-    <com.mkk.ru.presentation.customview.ButtonWithTopIcon
-        android:id="@+id/btnOpenShift"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dp_16"
-        android:layout_marginTop="@dimen/dp_16"
-        android:text="@string/menu_open_shift"
-        app:icon="@drawable/ic_printer"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/btnCloseShift"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/appBar" />
+        android:layout_marginBottom="@dimen/dp_16"
+        app:layout_constraintTop_toBottomOf="@id/appBar">
 
-    <com.mkk.ru.presentation.customview.ButtonWithTopIcon
-        android:id="@+id/btnSale"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dp_16"
-        android:layout_marginTop="@dimen/dp_16"
-        android:text="@string/menu_sale"
-        android:visibility="gone"
-        app:backgroundColor="@color/green"
-        app:icon="@drawable/ic_printer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/appBar" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_16">
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:barrierAllowsGoneWidgets="true"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="btnOpenShift,btnSale" />
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/groupBtnOpenShift"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                app:constraint_referenced_ids="btnSale,btnGenerateReport" />
 
-    <com.mkk.ru.presentation.customview.ButtonWithTopIcon
-        android:id="@+id/btnChecks"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp_16"
-        android:layout_marginEnd="@dimen/dp_8"
-        android:text="@string/menu_list_checks"
-        app:backgroundColor="@color/emerald"
-        app:icon="@drawable/ic_file"
-        app:layout_constraintEnd_toStartOf="@id/btnReports"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/barrier" />
+            <com.mkk.ru.presentation.customview.ButtonWithTopIcon
+                android:id="@+id/btnOpenShift"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:text="@string/menu_open_shift"
+                app:icon="@drawable/ic_printer"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <com.mkk.ru.presentation.customview.ButtonWithTopIcon
-        android:id="@+id/btnReports"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/dp_16"
-        android:text="@string/menu_list_reports"
-        app:backgroundColor="@color/purple"
-        app:icon="@drawable/ic_file"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btnChecks"
-        app:layout_constraintTop_toBottomOf="@id/barrier" />
+            <com.mkk.ru.presentation.customview.ButtonWithTopIcon
+                android:id="@+id/btnSale"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:text="@string/menu_sale"
+                android:visibility="gone"
+                app:backgroundColor="@color/green"
+                app:icon="@drawable/ic_printer"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <com.mkk.ru.presentation.customview.ButtonWithTopIcon
-        android:id="@+id/btnGenerateReport"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dp_16"
-        android:text="@string/menu_generate_report"
-        android:visibility="gone"
-        app:backgroundColor="@color/dark_blue"
-        app:icon="@drawable/ic_graph"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnChecks" />
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:barrierAllowsGoneWidgets="true"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="btnOpenShift,btnSale" />
 
-    <com.mkk.ru.presentation.customview.ButtonWithTopIcon
-        android:id="@+id/btnSettings"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dp_16"
-        android:text="@string/menu_settings"
-        app:backgroundColor="@color/light_blue"
-        app:icon="@drawable/ic_settings"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnGenerateReport" />
+            <com.mkk.ru.presentation.customview.ButtonWithTopIcon
+                android:id="@+id/btnChecks"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_8"
+                android:text="@string/menu_list_checks"
+                app:backgroundColor="@color/emerald"
+                app:icon="@drawable/ic_file"
+                app:layout_constraintEnd_toStartOf="@id/btnReports"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/barrier" />
+
+            <com.mkk.ru.presentation.customview.ButtonWithTopIcon
+                android:id="@+id/btnReports"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/menu_list_reports"
+                app:backgroundColor="@color/purple"
+                app:icon="@drawable/ic_file"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btnChecks"
+                app:layout_constraintTop_toBottomOf="@id/barrier" />
+
+            <com.mkk.ru.presentation.customview.ButtonWithTopIcon
+                android:id="@+id/btnGenerateReport"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/menu_generate_report"
+                android:visibility="gone"
+                app:backgroundColor="@color/dark_blue"
+                app:icon="@drawable/ic_graph"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnChecks" />
+
+            <com.mkk.ru.presentation.customview.ButtonWithTopIcon
+                android:id="@+id/btnSettings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/menu_settings"
+                app:backgroundColor="@color/light_blue"
+                app:icon="@drawable/ic_settings"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnGenerateReport" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnCloseShift"

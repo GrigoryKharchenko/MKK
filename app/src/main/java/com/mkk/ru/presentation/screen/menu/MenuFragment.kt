@@ -65,10 +65,12 @@ class MenuFragment : BaseFragment<MenuViewModel>() {
     }
 
     private fun handleShiftState(shiftState: Boolean) {
-        binding.groupBtnOpenShift.isVisible = shiftState
-        binding.btnOpenShift.isGone = shiftState
+        with(binding) {
+            groupBtnOpenShift.isVisible = shiftState
+            btnOpenShift.isGone = shiftState
+            btnCloseShift.isVisible = shiftState
+        }
     }
-
 
     private fun showCloseShiftDialog() {
         showDialog(

@@ -164,7 +164,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btnAddProduct"
         app:layout_constraintTop_toTopOf="@id/btnAddProduct"
-        app:textAmount="@string/sale_init_value"
-        app:textDescription="@string/sale_pay" />
+        app:textDescription="@string/sale_pay"
+        tools:textAmount="@string/sale_init_value" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

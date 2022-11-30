@@ -27,7 +27,7 @@ class SaleViewHolder(private val binding: ItemProductBinding) :
             tvProductCode.text = itemView.context.getString(R.string.sale_item_product_code, productUiModel.productCode)
             tvAmount.text = productUiModel.amount
             tvPrice.text = itemView.context.getString(R.string.sale_item_price, productUiModel.price)
-            tvGeneralPrice.text = productUiModel.generalPrice
+            tvGeneralPrice.text = productUiModel.generalPrice.toString()
         }
     }
 }

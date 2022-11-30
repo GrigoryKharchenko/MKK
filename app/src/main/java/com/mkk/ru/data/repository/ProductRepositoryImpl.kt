@@ -21,4 +21,9 @@ class ProductRepositoryImpl @Inject constructor() : ProductRepository {
         products.remove(product)
         _productsFlow.emit(products)
     }
+
+    override fun clearProducts() {
+        products.clear()
+        _productsFlow.tryEmit(products)
+    }
 }
