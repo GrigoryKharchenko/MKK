@@ -29,7 +29,7 @@ class ClaimStatusViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            _currentDateFlow.emit(preferenceManager.getLastDate())
+            _currentDateFlow.emit(preferenceManager.getCurrentDate())
         }
     }
 

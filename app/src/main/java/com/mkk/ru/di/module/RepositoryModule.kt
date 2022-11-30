@@ -1,11 +1,14 @@
 package com.mkk.ru.di.module
 
 import com.mkk.ru.data.repository.LoginRepositoryImpl
+import com.mkk.ru.data.repository.ProductRepositoryImpl
 import com.mkk.ru.data.repository.SubdivisionRepositoryImpl
 import com.mkk.ru.domain.repository.LoginRepository
+import com.mkk.ru.domain.repository.ProductRepository
 import com.mkk.ru.domain.repository.SubdivisionsRepository
 import dagger.Binds
 import dagger.Module
+import javax.inject.Singleton
 
 @Module
 interface RepositoryModule {
@@ -16,4 +19,7 @@ interface RepositoryModule {
     @Binds
     fun bindLoginRepository(repositoryImpl: LoginRepositoryImpl): LoginRepository
 
+    @Singleton
+    @Binds
+    fun bindProductRepository(repositoryImpl: ProductRepositoryImpl): ProductRepository
 }

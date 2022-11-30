@@ -34,12 +34,12 @@ class AddProductFragment : BaseFragment<AddProductViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initBinding()
-        initViewModel()
+        initUi()
+        subscribeToViewModel()
         setStatusBarColor(R.color.dark_orange)
     }
 
-    private fun initBinding() {
+    private fun initUi() {
         with(binding) {
             etPrice.doAfterTextChanged { price ->
                 viewModel.calculateSum(price = price?.toString(), amount = etAmount.text.toString())
@@ -54,11 +54,11 @@ class AddProductFragment : BaseFragment<AddProductViewModel>() {
                 viewModel.setSelectedUnit(position)
             }
             btnAddCheck.setOnClickListener {
-                viewModel.setErrors(
-                    etProduct.text.toString(),
-                    etPrice.text.toString(),
-                    etAmount.text.toString(),
-                    etProductCode.text.toString()
+                viewModel.addProducts(
+                    productName = etProduct.text.toString(),
+                    price = etPrice.text.toString(),
+                    amount = etAmount.text.toString(),
+                    productCode = etProductCode.text.toString(),
                 )
             }
             etPrice.setOnFocusChangeListener { _, _ ->
@@ -76,19 +76,19 @@ class AddProductFragment : BaseFragment<AddProductViewModel>() {
         }
     }
 
-    private fun initViewModel() {
+    private fun subscribeToViewModel() {
         with(viewModel) {
             calculateFlow.onEach { sum ->
                 binding.btnAddCheck.text = getString(R.string.add_product_add_check, sum)
             }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
-            selectedUnitFlow.onEach { typeUnits ->
-                processingSelectedUnitFlow(typeUnits)
-            }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
-            unitsFlow.onEach { listTypeUnits ->
-                processingUnitsFlow(listTypeUnits)
-            }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
-            errorFlow.onEach { error ->
-                checkValidation(error)
+            selectedUnitFlow.onEach(::processingSelectedUnitFlow)
+                .launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
+            unitsFlow.onEach(::processingUnitsFlow)
+                .launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
+            errorFlow.onEach(::checkValidation)
+                .launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
+            backFlow.onEach {
+                goBack()
             }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
         }
     }

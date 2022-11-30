@@ -38,6 +38,12 @@ class MenuFragment : BaseFragment<MenuViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initUi()
+        subscribeToViewModel()
+        setStatusBarColor(R.color.teal_basic)
+    }
+
+    private fun initUi() {
         with(binding) {
             btnOpenShift.safeOnClickListener {
                 showNameCashierDialog()
@@ -49,19 +55,20 @@ class MenuFragment : BaseFragment<MenuViewModel>() {
                 addFragment<SaleFragment>(R.id.container)
             }
         }
-        setStatusBarColor(R.color.teal_basic)
-        viewModel.viewEffectsFlow.onEach(::handleViewEffect)
-            .launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
     }
 
-    private fun handleViewEffect(viewEffects: MenuViewEffects) {
-        when (viewEffects) {
-            is MenuViewEffects.ChangeShift -> {
-                binding.groupBtnOpenShift.isVisible = viewEffects.isOpenedShift
-                binding.btnOpenShift.isGone = viewEffects.isOpenedShift
-            }
+    private fun subscribeToViewModel() {
+        with(viewModel) {
+            stateShiftFlow.onEach(::handleShiftState)
+                .launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
         }
     }
+
+    private fun handleShiftState(shiftState: Boolean) {
+        binding.groupBtnOpenShift.isVisible = shiftState
+        binding.btnOpenShift.isGone = shiftState
+    }
+
 
     private fun showCloseShiftDialog() {
         showDialog(
@@ -78,7 +85,7 @@ class MenuFragment : BaseFragment<MenuViewModel>() {
             title = R.string.menu_dialog_shift_closed_title,
             message = R.string.menu_dialog_shift_closed_description,
             positiveButton = R.string.dialog_ok_button,
-            onClickPositiveButton = { viewModel.changeShift(false) },
+            onClickPositiveButton = { viewModel.setStateShift(false) },
         )
     }
 
@@ -88,9 +95,9 @@ class MenuFragment : BaseFragment<MenuViewModel>() {
             .setView(bindingDialog.root)
             .show()
         bindingDialog.tvNext.setOnClickListener {
-            val editText = bindingDialog.etNameCashier.text.toString()
-            if (editText.isValidFullName()) {
-                viewModel.changeShift(true)
+            val etNameCashier = bindingDialog.etNameCashier.text.toString()
+            if (etNameCashier.isValidFullName()) {
+                viewModel.setStateShift(true)
                 showSnackbar(R.string.menu_snackbar_open_shift)
                 customDialogBuilder.dismiss()
             } else {

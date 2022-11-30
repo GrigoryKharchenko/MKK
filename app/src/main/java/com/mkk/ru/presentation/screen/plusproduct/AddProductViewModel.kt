@@ -3,6 +3,8 @@ package com.mkk.ru.presentation.screen.plusproduct
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mkk.ru.R
+import com.mkk.ru.domain.repository.ProductRepository
+import com.mkk.ru.presentation.screen.sale.ProductUiModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -11,9 +13,11 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class AddProductViewModel @Inject constructor() : ViewModel() {
+class AddProductViewModel @Inject constructor(
+    private val productsRepository: ProductRepository
+) : ViewModel() {
 
-    private val _calculateFlow = MutableSharedFlow<Double>(replay = 1)
+    private val _calculateFlow = MutableStateFlow(INIT_VALUE)
     val calculateFlow = _calculateFlow.asSharedFlow()
 
     private val _selectedUnitFlow = MutableStateFlow(TypeUnits.UNDEFINE)
@@ -25,10 +29,13 @@ class AddProductViewModel @Inject constructor() : ViewModel() {
     private val _errorFlow = MutableStateFlow(ErrorValidation())
     val errorFlow = _errorFlow.asStateFlow()
 
+    private val _backFlow = MutableSharedFlow<Unit>()
+    val backFlow = _backFlow.asSharedFlow()
+
     fun calculateSum(price: String?, amount: String?) {
         viewModelScope.launch {
-            val safePrise = price?.toDoubleOrNull() ?: 0.0
-            val safeAmount = amount?.toDoubleOrNull() ?: 0.0
+            val safePrise = price?.toDoubleOrNull() ?: INIT_VALUE
+            val safeAmount = amount?.toDoubleOrNull() ?: INIT_VALUE
             _calculateFlow.emit((safeAmount * safePrise))
         }
     }
@@ -71,21 +78,41 @@ class AddProductViewModel @Inject constructor() : ViewModel() {
         }
     }
 
-    fun setErrors(
-        product: String,
+    fun addProducts(
+        productName: String,
         price: String,
         amount: String,
-        productCode: String
+        productCode: String,
     ) {
         viewModelScope.launch {
-            _errorFlow.emit(
-                ErrorValidation(
-                    if (product.isEmpty()) R.string.add_product_invalid_product else null,
-                    if (price.isEmpty()) R.string.add_product_invalid_price else null,
-                    if (amount.isEmpty()) R.string.add_product_invalid_amount else null,
-                    if (productCode.isEmpty()) R.string.add_product_invalid_product_code else null,
+            if (productName.isNotEmpty() && price.isNotEmpty()
+                && amount.isNotEmpty() && productCode.isNotEmpty()
+            ) {
+                productsRepository.addProduct(
+                    ProductUiModel(
+                        product = productName,
+                        price = price,
+                        amount = amount,
+                        productCode = productCode,
+                        generalPrice = _calculateFlow.value.toString()
+                    )
                 )
-            )
+                _backFlow.emit(Unit)
+            } else {
+                _errorFlow.emit(
+                    ErrorValidation(
+                        if (productName.isEmpty()) R.string.add_product_invalid_product else null,
+                        if (price.isEmpty()) R.string.add_product_invalid_price else null,
+                        if (amount.isEmpty()) R.string.add_product_invalid_amount else null,
+                        if (productCode.isEmpty()) R.string.add_product_invalid_product_code else null,
+                    )
+                )
+            }
         }
     }
+
+    companion object {
+        private const val INIT_VALUE = 0.0
+    }
 }
+

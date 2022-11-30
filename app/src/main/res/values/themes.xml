@@ -85,6 +85,10 @@
         <item name="android:textSize">@dimen/sp_16</item>
     </style>
 
+    <style name="Text.Black.16.Bold">
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+
     <style name="Text.Black.20">
         <item name="android:textSize">@dimen/sp_20</item>
     </style>
@@ -93,9 +97,38 @@
         <item name="fontFamily">sans-serif-medium</item>
     </style>
 
+    <style name="Text.LightGray">
+        <item name="android:textColor">@color/light_gray</item>
+    </style>
+
+    <style name="Text.LightGray.12">
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+
+    <style name="Text.DarkGray">
+        <item name="android:textColor">@color/dark_gray</item>
+    </style>
+
+    <style name="Text.DarkGray.12">
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+
+    <style name="Text.DarkGray.14">
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+
+    <style name="Text.DarkGray.24">
+        <item name="android:textSize">@dimen/sp_24</item>
+    </style>
+
     <style name="Text.Gray">
         <item name="android:textColor">@color/gray</item>
     </style>
+
+    <style name="Text.Gray.12">
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+
 
     <style name="Text.Gray.14">
         <item name="android:textSize">@dimen/sp_14</item>
@@ -107,6 +140,10 @@
 
     <style name="WhiteBackgroundLayout" parent="Theme.MKK">
         <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="WaterBackgroundLayout" parent="Theme.MKK">
+        <item name="android:background">@color/water</item>
     </style>
 
     <style name="ProgressBarStyle">

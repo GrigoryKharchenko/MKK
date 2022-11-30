@@ -104,6 +104,16 @@
     <string name="sale_add_product">Добавить товар</string>
     <string name="sale_pay">Оплатить</string>
     <string name="sale_init_value">0</string>
+    <string name="sale_product_code">Товар / Код товара</string>
+    <string name="sale_amount">Кол-во * Цена</string>
+    <string name="sale_price_product">Итог</string>
+    <string name="sale_general_price">Некорректное имя кассира</string>
+    <string name="sale_title_general_price">Итого К ОПЛАТЕ:</string>
+    <string name="sale_item_product">%s</string>
+    <string name="sale_item_product_code">Код товара: %s</string>
+    <string name="sale_item_amount">%s</string>
+    <string name="sale_item_price">&#160;x %s</string>
+    <string name="sale_item_general_price">%s</string>
 
     <!-- AddProductFragment -->
     <string name="add_product_title">Добавить товар</string>
