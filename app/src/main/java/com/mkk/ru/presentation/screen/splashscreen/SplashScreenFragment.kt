@@ -34,7 +34,7 @@ class SplashScreenFragment : BaseFragment<SplashScreenViewModel>() {
         binding.tvVersion.text =
             getString(R.string.splash_screen_fragment_app_version, BuildConfig.VERSION_NAME)
         viewModel.openRegistrationCashBoxFragmentFlow.onEach {
-            replaceFragment<RegistrationCashBoxFragment>(R.id.container)
+            replaceFragment<MenuFragment>(R.id.container)
         }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
     }
 

@@ -1,5 +1,8 @@
 package com.mkk.ru.di.module
 
+import com.mkk.ru.presentation.screen.checks.ChecksFragment
+import com.mkk.ru.presentation.screen.checks.viewpager.allchecks.AllChecksFragment
+import com.mkk.ru.presentation.screen.checks.viewpager.currentshift.CurrentChecksFragment
 import com.mkk.ru.presentation.screen.claimstatus.ClaimStatusFragment
 import com.mkk.ru.presentation.screen.menu.MenuFragment
 import com.mkk.ru.presentation.screen.plusproduct.AddProductFragment
@@ -37,4 +40,13 @@ interface FragmentModule {
 
     @ContributesAndroidInjector
     fun bindAddProductFragment(): AddProductFragment
+
+    @ContributesAndroidInjector
+    fun bindChecksFragment(): ChecksFragment
+
+    @ContributesAndroidInjector
+    fun bindCurrentChecksFragment(): CurrentChecksFragment
+
+    @ContributesAndroidInjector
+    fun bindAllChecksFragment(): AllChecksFragment
 }

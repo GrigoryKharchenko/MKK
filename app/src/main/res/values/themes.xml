@@ -209,6 +209,10 @@
         <item name="android:background">@color/green</item>
     </style>
 
+    <style name="EmeraldToolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="android:background">@color/emerald</item>
+    </style>
+
     <style name="OrangeToolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
         <item name="android:background">@color/orange</item>
     </style>
