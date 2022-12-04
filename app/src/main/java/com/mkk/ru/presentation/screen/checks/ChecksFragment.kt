@@ -15,6 +15,7 @@ class ChecksFragment : BaseFragment<ChecksViewModel>() {
     private var _binding: FragmentChecksBinding? = null
     private val binding get() = _binding!!
 
+    private val adapter by lazy { ChecksVIewPagerAdapter(childFragmentManager, lifecycle) }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,7 +33,7 @@ class ChecksFragment : BaseFragment<ChecksViewModel>() {
 
     private fun initUi() {
         with(binding) {
-            viewPager.adapter = ChecksVIewPagerAdapter(childFragmentManager, lifecycle)
+            viewPager.adapter = adapter
             val arrayTitle = arrayOf(getString(R.string.checks_current), getString(R.string.checks_all))
             TabLayoutMediator(tabLayout, viewPager) { tab, position ->
                 tab.text = arrayTitle[position]

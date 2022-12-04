@@ -15,7 +15,7 @@ class AllChecksFragment : BaseFragment<AllChecksViewModel>() {
     private var _binding: FragmentAllChecksBinding? = null
     private val binding get() = _binding!!
 
-    private val adapter = AllChecksAdapter()
+    private val adapter by lazy { AllChecksAdapter() }
 
 
     override fun onCreateView(
@@ -41,9 +41,8 @@ class AllChecksFragment : BaseFragment<AllChecksViewModel>() {
 
     private fun subscribeToViewModel() {
         with(viewModel) {
-            allChecksFlow.onEach { checks ->
-                adapter.submitList(checks)
-            }.launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
+            allChecksFlow.onEach(adapter::submitList)
+                .launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
         }
     }
 

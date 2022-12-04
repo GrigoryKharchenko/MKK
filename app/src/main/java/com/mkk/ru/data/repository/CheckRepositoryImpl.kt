@@ -10,27 +10,27 @@ class CheckRepositoryImpl @Inject constructor() : ChecksRepository {
             CheckModel(
                 date = "16.02.21",
                 time = "16:01",
-                numberChecks = "№2323513224",
+                idChecks = "№2323513224",
                 price = "125"
             ),
             CheckModel(
                 date = "16.02.21",
                 time = "16:01",
-                numberChecks = "№2323513224",
+                idChecks = "№2323513224",
                 price = "125"
             ),
             CheckModel(
                 date = "16.02.21",
                 time = "16:01",
-                numberChecks = "№2323513224",
-                isError = false,
-                isPrinterOff = false,
+                idChecks = "№2323513224",
+                isInvisibleErrorIcon = false,
+                isInvisiblePrinterOffIcon = false,
                 price = "125"
             ),
             CheckModel(
                 date = "16.02.21",
                 time = "16:01",
-                numberChecks = "№2323513224",
+                idChecks = "№2323513224",
                 price = "125"
             ),
         )
@@ -40,29 +40,29 @@ class CheckRepositoryImpl @Inject constructor() : ChecksRepository {
             CheckModel(
                 date = "16.02.21",
                 time = "16:01",
-                numberChecks = "№2323513224",
+                idChecks = "№2323513224",
                 price = "125"
             ),
             CheckModel(
                 date = "16.02.21",
                 time = "16:01",
-                numberChecks = "№2323513224",
-                isError = false,
-                isPrinterOff = false,
+                idChecks = "№2323513224",
+                isInvisibleErrorIcon = false,
+                isInvisiblePrinterOffIcon = false,
                 price = "125"
             ),
             CheckModel(
                 date = "16.02.21",
                 time = "16:01",
-                numberChecks = "№2323513224",
+                idChecks = "№2323513224",
                 price = "125"
             ),
             CheckModel(
                 date = "16.02.21",
                 time = "16:01",
-                numberChecks = "№2323513224",
-                isError = false,
-                isPrinterOff = false,
+                idChecks = "№2323513224",
+                isInvisibleErrorIcon = false,
+                isInvisiblePrinterOffIcon = false,
                 price = "125"
             ),
         )

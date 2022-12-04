@@ -26,17 +26,17 @@ class CurrentChecksViewHolder(private val binding: ItemChecksBinding) :
         with(binding) {
             tvDate.text = checkModel.date
             tvTime.text = checkModel.time
-            tvNumberCheck.text = checkModel.numberChecks
+            tvNumberCheck.text = checkModel.idChecks
             tvPrice.text = checkModel.price
-            ivError.isInvisible = checkModel.isError
-            ivPrinterOff.isInvisible = checkModel.isPrinterOff
+            ivIconError.isInvisible = checkModel.isInvisibleErrorIcon
+            ivIconPrinterOff.isInvisible = checkModel.isInvisiblePrinterOffIcon
         }
     }
 }
 
 class CurrentChecksDiffUtil : DiffUtil.ItemCallback<CheckModel>() {
     override fun areItemsTheSame(oldItem: CheckModel, newItem: CheckModel): Boolean =
-        oldItem.numberChecks == newItem.numberChecks
+        oldItem.idChecks == newItem.idChecks
 
     override fun areContentsTheSame(oldItem: CheckModel, newItem: CheckModel): Boolean =
         oldItem == newItem

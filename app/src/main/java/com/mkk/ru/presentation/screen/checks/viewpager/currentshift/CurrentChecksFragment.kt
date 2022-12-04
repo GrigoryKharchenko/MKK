@@ -15,7 +15,7 @@ class CurrentChecksFragment : BaseFragment<CurrentChecksViewModel>() {
     private var _binding: FragmentCurrentChecksBinding? = null
     private val binding get() = _binding!!
 
-    private val adapter = CurrentChecksAdapter()
+    private val adapter by lazy { CurrentChecksAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,9 +40,7 @@ class CurrentChecksFragment : BaseFragment<CurrentChecksViewModel>() {
 
     private fun subscribeToViewModel() {
         with(viewModel) {
-            currentChecksFlow.onEach { checks ->
-                adapter.submitList(checks)
-            }
+            currentChecksFlow.onEach(adapter::submitList)
                 .launchWhenStarted(lifecycleScope, viewLifecycleOwner.lifecycle)
         }
     }

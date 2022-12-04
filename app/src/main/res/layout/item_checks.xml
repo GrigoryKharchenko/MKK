@@ -33,7 +33,7 @@
         tools:text="№1125484513" />
 
     <ImageView
-        android:id="@+id/ivError"
+        android:id="@+id/ivIconError"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_18"
@@ -42,7 +42,7 @@
         android:visibility="invisible" />
 
     <ImageView
-        android:id="@+id/ivPrinterOff"
+        android:id="@+id/ivIconPrinterOff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_18"
