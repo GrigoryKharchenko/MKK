@@ -19,6 +19,7 @@ import com.mkk.ru.extension.setStatusBarColor
 import com.mkk.ru.extension.showDialog
 import com.mkk.ru.extension.showSnackbar
 import com.mkk.ru.presentation.base.BaseFragment
+import com.mkk.ru.presentation.screen.checks.ChecksFragment
 import com.mkk.ru.presentation.screen.sale.SaleFragment
 import kotlinx.coroutines.flow.onEach
 
@@ -53,6 +54,9 @@ class MenuFragment : BaseFragment<MenuViewModel>() {
             }
             btnSale.safeOnClickListener {
                 addFragment<SaleFragment>(R.id.container)
+            }
+            btnChecks.safeOnClickListener {
+                addFragment<ChecksFragment>(R.id.container)
             }
         }
     }

@@ -209,7 +209,16 @@
         <item name="android:background">@color/green</item>
     </style>
 
+    <style name="EmeraldToolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="android:background">@color/emerald</item>
+    </style>
+
     <style name="OrangeToolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
         <item name="android:background">@color/orange</item>
+    </style>
+
+    <style name="TabText" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <item name="android:textAllCaps">false</item>
     </style>
 </resources>

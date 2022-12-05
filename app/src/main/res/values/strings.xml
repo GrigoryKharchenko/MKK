@@ -141,4 +141,10 @@
     <string name="add_product_invalid_price">Введите цену</string>
     <string name="add_product_invalid_amount">Введите количество</string>
     <string name="add_product_invalid_product_code">Введите код товара</string>
+
+    <!-- ChecksFragment -->
+    <string name="checks_period">Период</string>
+    <string name="checks_current">Текущая смена</string>
+    <string name="checks_all">Все</string>
+
 </resources>

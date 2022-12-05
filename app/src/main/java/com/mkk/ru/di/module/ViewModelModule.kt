@@ -2,6 +2,9 @@ package com.mkk.ru.di.module
 
 import androidx.lifecycle.ViewModel
 import com.mkk.ru.di.ViewModelKey
+import com.mkk.ru.presentation.screen.checks.ChecksViewModel
+import com.mkk.ru.presentation.screen.checks.viewpager.allchecks.AllChecksViewModel
+import com.mkk.ru.presentation.screen.checks.viewpager.currentshift.CurrentChecksViewModel
 import com.mkk.ru.presentation.screen.claimstatus.ClaimStatusViewModel
 import com.mkk.ru.presentation.screen.menu.MenuViewModel
 import com.mkk.ru.presentation.screen.plusproduct.AddProductViewModel
@@ -56,4 +59,19 @@ interface ViewModelModule {
     @IntoMap
     @ViewModelKey(AddProductViewModel::class)
     fun bindAddProductViewModel(viewModel: AddProductViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ChecksViewModel::class)
+    fun bindChecksViewModel(viewModel: ChecksViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(CurrentChecksViewModel::class)
+    fun bindCurrentChecksViewModel(viewModel: CurrentChecksViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(AllChecksViewModel::class)
+    fun bindAllChecksViewModel(viewModel: AllChecksViewModel): ViewModel
 }
