@@ -141,4 +141,20 @@
     <string name="add_product_invalid_price">Введите цену</string>
     <string name="add_product_invalid_amount">Введите количество</string>
     <string name="add_product_invalid_product_code">Введите код товара</string>
+
+    <!-- PasswordFragment -->
+    <string name="password_number_one">1</string>
+    <string name="password_number_two">2</string>
+    <string name="password_number_three">3</string>
+    <string name="password_number_four">4</string>
+    <string name="password_number_five">5</string>
+    <string name="password_number_six">6</string>
+    <string name="password_number_seven">7</string>
+    <string name="password_number_eight">8</string>
+    <string name="password_number_nine">9</string>
+    <string name="password_number_zero">0</string>
+    <string name="password_exit">Выйти</string>
+    <string name="password_create">Создание пин-кода</string>
+    <string name="password_continue">Продолжить</string>
+    <string name="password_enter_code">Введите пин-код</string>
 </resources>

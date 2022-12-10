@@ -30,6 +30,12 @@ class PreferenceManagerImpl @Inject constructor(
         preferences[stateShiftKey] ?: false
     }
 
+    private val passwordKey = stringPreferencesKey("password_key")
+
+    private val passwordFlow = context.dataStore.data.map { preference ->
+        preference[passwordKey] ?: ""
+    }
+
     override suspend fun getCurrentDate(): String = currentDate.first()
 
     override suspend fun saveCurrentDate(currentDate: String) {
@@ -43,6 +49,14 @@ class PreferenceManagerImpl @Inject constructor(
     override suspend fun saveStateShift(stateShift: Boolean) {
         context.dataStore.edit { state ->
             state[stateShiftKey] = stateShift
+        }
+    }
+
+    override suspend fun getPassword(): String = passwordFlow.first()
+
+    override suspend fun savePassword(password: String) {
+        context.dataStore.edit { passwordEdit ->
+            passwordEdit[passwordKey] = password
         }
     }
 }

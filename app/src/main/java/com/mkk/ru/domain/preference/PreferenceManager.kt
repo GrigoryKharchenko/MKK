@@ -6,4 +6,7 @@ interface PreferenceManager {
 
     suspend fun getStateShift(): Boolean
     suspend fun saveStateShift(stateShift: Boolean)
+
+    suspend fun getPassword(): String
+    suspend fun savePassword(password:String)
 }
